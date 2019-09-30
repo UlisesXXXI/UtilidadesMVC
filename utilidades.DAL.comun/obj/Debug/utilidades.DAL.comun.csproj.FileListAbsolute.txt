@@ -1,0 +1,9 @@
+C:\GIT\Propios\Utilidades\utilidades.DAL.comun\bin\Debug\utilidades.DAL.comun.dll.config
+C:\GIT\Propios\Utilidades\utilidades.DAL.comun\bin\Debug\utilidades.DAL.comun.dll
+C:\GIT\Propios\Utilidades\utilidades.DAL.comun\bin\Debug\utilidades.DAL.comun.pdb
+C:\GIT\Propios\Utilidades\utilidades.DAL.comun\bin\Debug\EntityFramework.dll
+C:\GIT\Propios\Utilidades\utilidades.DAL.comun\bin\Debug\EntityFramework.SqlServer.dll
+C:\GIT\Propios\Utilidades\utilidades.DAL.comun\bin\Debug\EntityFramework.xml
+C:\GIT\Propios\Utilidades\utilidades.DAL.comun\bin\Debug\EntityFramework.SqlServer.xml
+C:\GIT\Propios\Utilidades\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.dll
+C:\GIT\Propios\Utilidades\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.pdb
