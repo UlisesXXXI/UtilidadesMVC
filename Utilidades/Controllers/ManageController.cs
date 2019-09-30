@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using utilidades.BLL;
 using Utilidades.Models;
 
 namespace Utilidades.Controllers
@@ -13,40 +14,40 @@ namespace Utilidades.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private SignInService _signInService;
+        private UserService _userService;
 
         public ManageController()
         {
         }
 
-        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public ManageController(UserService userService, SignInService signInService)
         {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            UserManager = userService;
+            SignInManager = signInService;
         }
 
-        public ApplicationSignInManager SignInManager
+        public SignInService SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return _signInService ?? HttpContext.GetOwinContext().Get<SignInService>();
             }
             private set 
             { 
-                _signInManager = value; 
+                _signInService = value; 
             }
         }
 
-        public ApplicationUserManager UserManager
+        public UserService UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userService ?? HttpContext.GetOwinContext().GetUserManager<UserService>();
             }
             private set
             {
-                _userManager = value;
+                _userService = value;
             }
         }
 
@@ -322,10 +323,10 @@ namespace Utilidades.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && _userManager != null)
+            if (disposing && _userService != null)
             {
-                _userManager.Dispose();
-                _userManager = null;
+                _userService.Dispose();
+                _userService = null;
             }
 
             base.Dispose(disposing);

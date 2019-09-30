@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using utilidades.BLL;
+using utilidades.DAL.UsuarioYRoles;
 using Utilidades.Models;
 
 namespace Utilidades.Controllers
@@ -15,44 +17,40 @@ namespace Utilidades.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
+        private SignInService _signInService;
 
-        private ApplicationUserManager _userManager;
+        private UserService _userService;
 
-        public AccountController()
+
+        public AccountController(SignInService signInService, UserService userService, RoleService roleService)//UserService userService)//, SignInService signInService )
         {
+            UserManager = userService;
+
+            SignInService = signInService;
 
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-
-            SignInManager = signInManager;
-
-        }
-
-        public ApplicationSignInManager SignInManager
+        public SignInService SignInService
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return _signInService ?? HttpContext.GetOwinContext().Get<SignInService>();
             }
             private set 
-            { 
-                _signInManager = value; 
+            {
+                _signInService = value; 
             }
         }
 
-        public ApplicationUserManager UserManager
+        public UserService UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userService ?? HttpContext.GetOwinContext().GetUserManager<UserService>();
             }
             private set
             {
-                _userManager = value;
+                _userService = value;
             }
         }
 
@@ -80,7 +78,7 @@ namespace Utilidades.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInService.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -102,7 +100,7 @@ namespace Utilidades.Controllers
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
             // Require that the user has already logged in via username/password or external login
-            if (!await SignInManager.HasBeenVerifiedAsync())
+            if (!await SignInService.HasBeenVerifiedAsync())
             {
                 return View("Error");
             }
@@ -125,7 +123,7 @@ namespace Utilidades.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInService.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -160,7 +158,7 @@ namespace Utilidades.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    await SignInService.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -292,7 +290,7 @@ namespace Utilidades.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
-            var userId = await SignInManager.GetVerifiedUserIdAsync();
+            var userId = await SignInService.GetVerifiedUserIdAsync();
             if (userId == null)
             {
                 return View("Error");
@@ -315,7 +313,7 @@ namespace Utilidades.Controllers
             }
 
             // Generate the token and send it
-            if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
+            if (!await SignInService.SendTwoFactorCodeAsync(model.SelectedProvider))
             {
                 return View("Error");
             }
@@ -334,7 +332,7 @@ namespace Utilidades.Controllers
             }
 
             // Sign in the user with this external login provider if the user already has a login
-            var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
+            var result = await SignInService.ExternalSignInAsync(loginInfo, isPersistent: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -379,7 +377,7 @@ namespace Utilidades.Controllers
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        await SignInService.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToLocal(returnUrl);
                     }
                 }
@@ -412,16 +410,16 @@ namespace Utilidades.Controllers
         {
             if (disposing)
             {
-                if (_userManager != null)
+                if (_userService != null)
                 {
-                    _userManager.Dispose();
-                    _userManager = null;
+                    _userService.Dispose();
+                    _userService = null;
                 }
 
-                if (_signInManager != null)
+                if (_signInService != null)
                 {
-                    _signInManager.Dispose();
-                    _signInManager = null;
+                    _signInService.Dispose();
+                    _signInService = null;
                 }
             }
 

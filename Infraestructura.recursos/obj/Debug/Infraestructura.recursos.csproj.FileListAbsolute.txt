@@ -2,3 +2,9 @@ C:\GIT\Propios\Utilidades\Infraestructura.recursos\bin\Debug\Infraestructura.rec
 C:\GIT\Propios\Utilidades\Infraestructura.recursos\bin\Debug\Infraestructura.recursos.pdb
 C:\GIT\Propios\Utilidades\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.dll
 C:\GIT\Propios\Utilidades\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\bin\Debug\Infraestructura.recursos.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\bin\Debug\Infraestructura.recursos.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.csproj.CoreCompileInputs.cache
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.csprojAssemblyReference.cache

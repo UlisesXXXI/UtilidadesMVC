@@ -7,3 +7,15 @@ C:\GIT\Propios\Utilidades\utilidades.DAL.comun\bin\Debug\EntityFramework.xml
 C:\GIT\Propios\Utilidades\utilidades.DAL.comun\bin\Debug\EntityFramework.SqlServer.xml
 C:\GIT\Propios\Utilidades\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.dll
 C:\GIT\Propios\Utilidades\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\bin\Debug\utilidades.DAL.comun.dll.config
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\bin\Debug\utilidades.DAL.comun.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\bin\Debug\utilidades.DAL.comun.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\bin\Debug\EntityFramework.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\bin\Debug\EntityFramework.SqlServer.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\bin\Debug\EntityFramework.xml
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\bin\Debug\EntityFramework.SqlServer.xml
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.csproj.CoreCompileInputs.cache
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.csproj.CopyComplete
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.csprojAssemblyReference.cache

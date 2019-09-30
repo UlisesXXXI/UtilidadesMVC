@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Utilidades.Infraestructura;
 
 namespace Utilidades.Controllers
 {
@@ -10,7 +11,11 @@ namespace Utilidades.Controllers
     {
         public ActionResult Index()
         {
+
+            string nombre = ContextoApp.Usuario.NombreUsuario();
             return View();
+
+           
         }
 
         public ActionResult About()

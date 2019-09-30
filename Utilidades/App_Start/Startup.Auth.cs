@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
+using utilidades.BLL;
+using utilidades.DAL.dbContext;
+using utilidades.DAL.UsuarioYRoles;
 using Utilidades.Models;
 
 namespace Utilidades
@@ -14,10 +18,13 @@ namespace Utilidades
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+
+            //app.CreatePerOwinContext(() => DependencyResolver.Current.GetService<UserService>());
+            //app.CreatePerOwinContext(() => DependencyResolver.Current.GetService<SignInService>());
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+            //app.CreatePerOwinContext(UtilidadesDbContext.Create);
+            //app.CreatePerOwinContext<UserService>(UserService.Create);
+            //app.CreatePerOwinContext<SignInService>(SignInService.Create);
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
@@ -30,7 +37,7 @@ namespace Utilidades
                 {
                     // Enables the application to validate the security stamp when the user logs in.
                     // This is a security feature which is used when you change a password or add an external login to your account.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<UserService, ApplicationUser>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
