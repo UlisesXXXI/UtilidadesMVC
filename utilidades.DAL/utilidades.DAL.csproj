@@ -103,6 +103,12 @@
       <DependentUpon>201909301704049_primera.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\utilidades.DAL.comun\utilidades.DAL.comun.csproj">
+      <Project>{23339e60-7490-4a31-bfd8-d32a738eff0a}</Project>
+      <Name>utilidades.DAL.comun</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

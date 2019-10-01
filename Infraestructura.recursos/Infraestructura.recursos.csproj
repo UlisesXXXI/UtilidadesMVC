@@ -39,12 +39,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Usuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usuario.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Errores\Usuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usuarios.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entidades\" />
-    <Folder Include="Errores\" />
     <Folder Include="Etiquetas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Entidades\Usuario.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Usuario.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Errores\Usuarios.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Usuarios.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

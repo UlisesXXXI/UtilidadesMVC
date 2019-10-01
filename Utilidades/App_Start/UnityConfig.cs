@@ -12,6 +12,7 @@ using utilidades.BLL;
 using utilidades.DAL.dbContext;
 using utilidades.DAL.UsuarioYRoles;
 using Utilidades.Infraestructura;
+using Utilidades.Infraestructura.Managers.Inter;
 
 namespace Utilidades
 {
@@ -21,25 +22,23 @@ namespace Utilidades
         {
 			var container = new UnityContainer();
 
-            // register all your components with the container here
-            // it is NOT necessary to register your controllers
-
-            // e.g. container.RegisterType<ITestService, TestService>();
+                //Carga de todas las dependencias de la aplicacion
+                DependenciasAplicacion(container);
 
 
-
-
-                IdentityDependencias(container);
-
-
-
+                //Asigna el contenedor al objeto ContextApp para que este disponible en todo el frontal
                 ContextoApp.Container = container;
 
                 
-
                 DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
 
+
+        public static void DependenciasAplicacion(IUnityContainer container)
+        {
+            //Dependencias de UserManager,RoleManager,SignInService
+            IdentityDependencias(container);
+        }
 
         public static void IdentityDependencias(IUnityContainer container)
         {
@@ -47,7 +46,7 @@ namespace Utilidades
             container.RegisterType<UtilidadesDbContext>(new PerThreadLifetimeManager());
             container.RegisterType<DbContext, UtilidadesDbContext>(new PerThreadLifetimeManager());
 
-            //container.RegisterInstance<UtilidadesDbContext>(new PerResolveLifetimeManager());
+            
             container.RegisterType<IUserStore<ApplicationUser,string>, UserStore<ApplicationUser,ApplicationRole,string,IdentityUserLogin,IdentityUserRole,IdentityUserClaim>>(accountInjectionConstructor);
             container.RegisterType<IRoleStore<ApplicationRole, string>, RoleStore<ApplicationRole>>();
             container.RegisterType<IAuthenticationManager>(new InjectionFactory(o => HttpContext.Current.GetOwinContext().Authentication));
@@ -57,6 +56,11 @@ namespace Utilidades
             container.RegisterType<SignInService>();
             container.RegisterType<UserService>();
             container.RegisterType<EmailService>();
+        }
+
+        public static void ManagerDependencias(IUnityContainer container)
+        {
+            container.RegisterType<IUsuariosManager, IUsuariosManager>();
         }
     }
 }

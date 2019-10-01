@@ -184,6 +184,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsuariosController.cs" />
     <Compile Include="Areas\Repositorio\RepositorioAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -191,13 +192,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infraestructura\Constantes\Roles.cs" />
     <Compile Include="Infraestructura\ContextoApp.cs" />
+    <Compile Include="Infraestructura\Managers\Imp\UsuarioManager.cs" />
+    <Compile Include="Infraestructura\Managers\Inter\IUsuariosManager.cs" />
     <Compile Include="Infraestructura\Seguridad\inter\IUsuarioActual.cs" />
     <Compile Include="Infraestructura\Seguridad\UsuarioActual.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Usuarios\IRolesUsuario.cs" />
+    <Compile Include="ViewModels\Usuarios\newUserViewModel.cs" />
+    <Compile Include="ViewModels\Usuarios\UserRolesViewModel.cs" />
+    <Compile Include="ViewModels\Usuarios\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -210,6 +218,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Repositorio\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Usuarios\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -257,15 +266,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Repositorio\Controllers\" />
     <Folder Include="Areas\Repositorio\Models\" />
     <Folder Include="Areas\Repositorio\Views\Shared\" />
+    <Folder Include="Scripts\App\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -275,9 +286,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infraestructura.recursos\Infraestructura.recursos.csproj">
+      <Project>{d9865873-1804-4860-9a3d-de243e9ef7f9}</Project>
+      <Name>Infraestructura.recursos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\utilidades.BLL\utilidades.BLL.csproj">
       <Project>{18370b0a-fe9a-4195-9bbb-c1e5a369b7ec}</Project>
       <Name>utilidades.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\utilidades.DAL.comun\utilidades.DAL.comun.csproj">
+      <Project>{23339e60-7490-4a31-bfd8-d32a738eff0a}</Project>
+      <Name>utilidades.DAL.comun</Name>
     </ProjectReference>
     <ProjectReference Include="..\utilidades.DAL\utilidades.DAL.csproj">
       <Project>{62eb32a1-b661-48c0-a07f-64bc37f1b6bb}</Project>

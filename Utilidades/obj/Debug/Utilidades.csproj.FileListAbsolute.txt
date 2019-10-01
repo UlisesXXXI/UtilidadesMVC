@@ -135,3 +135,9 @@ J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\utilidades.BLL.dll.config
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.Threading.Tasks.Extensions.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\WebActivatorEx.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.Threading.Tasks.Extensions.xml
+C:\GIT\Propios\Utilidades\Utilidades\bin\utilidades.BLL.dll
+C:\GIT\Propios\Utilidades\Utilidades\bin\utilidades.BLL.pdb
+C:\GIT\Propios\Utilidades\Utilidades\bin\utilidades.DAL.comun.dll
+C:\GIT\Propios\Utilidades\Utilidades\bin\utilidades.DAL.comun.pdb
+C:\GIT\Propios\Utilidades\Utilidades\bin\Infraestructura.recursos.dll
+C:\GIT\Propios\Utilidades\Utilidades\bin\Infraestructura.recursos.pdb

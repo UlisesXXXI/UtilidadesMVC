@@ -8,3 +8,6 @@ J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructur
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.csprojAssemblyReference.cache
+C:\GIT\Propios\Utilidades\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.Errores.Usuarios.resources
+C:\GIT\Propios\Utilidades\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.csproj.GenerateResource.Cache
+C:\GIT\Propios\Utilidades\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.Entidades.Usuario.resources

@@ -1,0 +1,4 @@
+C:\GIT\Propios\Utilidades\Infraestructura.comun\bin\Debug\Infraestructura.comun.dll
+C:\GIT\Propios\Utilidades\Infraestructura.comun\bin\Debug\Infraestructura.comun.pdb
+C:\GIT\Propios\Utilidades\Infraestructura.comun\obj\Debug\Infraestructura.comun.dll
+C:\GIT\Propios\Utilidades\Infraestructura.comun\obj\Debug\Infraestructura.comun.pdb

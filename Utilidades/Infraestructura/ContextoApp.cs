@@ -11,7 +11,7 @@ namespace Utilidades.Infraestructura
 {
     public static class ContextoApp
     {
-        private static IUsuarioActual _usuario;
+         private static IUsuarioActual _usuario;
 
          static ContextoApp()
         {
@@ -20,13 +20,7 @@ namespace Utilidades.Infraestructura
 
         public static IUnityContainer Container {get;set;}
 
-        public static IUsuarioActual Usuario { 
-                            get { 
-                                    return _usuario; 
-                            } 
-        }
-
-       
+        public static IUsuarioActual Usuario { get { return _usuario; }  }
 
     }
 }

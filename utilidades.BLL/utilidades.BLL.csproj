@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inter\EmailService.cs" />
     <Compile Include="RoleService.cs" />
     <Compile Include="SignInService.cs" />
     <Compile Include="SmsService.cs" />
@@ -87,10 +88,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\utilidades.DAL.comun\utilidades.DAL.comun.csproj">
+      <Project>{23339e60-7490-4a31-bfd8-d32a738eff0a}</Project>
+      <Name>utilidades.DAL.comun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\utilidades.DAL\utilidades.DAL.csproj">
       <Project>{62EB32A1-B661-48C0-A07F-64BC37F1B6BB}</Project>
       <Name>utilidades.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imp\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

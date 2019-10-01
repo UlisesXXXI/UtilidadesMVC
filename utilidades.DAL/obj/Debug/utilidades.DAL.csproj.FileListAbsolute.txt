@@ -55,3 +55,8 @@ J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.primera.resources
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.csproj.GenerateResource.cache
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.csprojAssemblyReference.cache
+C:\GIT\Propios\Utilidades\utilidades.DAL\obj\Debug\utilidades.DAL.csprojResolveAssemblyReference.cache
+C:\GIT\Propios\Utilidades\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.primera.resources
+C:\GIT\Propios\Utilidades\utilidades.DAL\obj\Debug\utilidades.DAL.csproj.GenerateResource.Cache
+C:\GIT\Propios\Utilidades\utilidades.DAL\bin\Debug\utilidades.DAL.comun.dll
+C:\GIT\Propios\Utilidades\utilidades.DAL\bin\Debug\utilidades.DAL.comun.pdb

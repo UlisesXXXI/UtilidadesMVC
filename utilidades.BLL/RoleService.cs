@@ -20,6 +20,7 @@ namespace utilidades.BLL
         public static RoleService Create(IdentityFactoryOptions<RoleService> options, IOwinContext context)
         {
             var manager = new RoleService(new RoleStore<ApplicationRole>(context.Get<UtilidadesDbContext>()));
+
             return manager;
         }
     }
