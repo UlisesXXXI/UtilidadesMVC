@@ -60,3 +60,6 @@ C:\GIT\Propios\Utilidades\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.pri
 C:\GIT\Propios\Utilidades\utilidades.DAL\obj\Debug\utilidades.DAL.csproj.GenerateResource.Cache
 C:\GIT\Propios\Utilidades\utilidades.DAL\bin\Debug\utilidades.DAL.comun.dll
 C:\GIT\Propios\Utilidades\utilidades.DAL\bin\Debug\utilidades.DAL.comun.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\bin\Debug\utilidades.DAL.comun.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\bin\Debug\utilidades.DAL.comun.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\bin\Debug\utilidades.DAL.comun.dll.config

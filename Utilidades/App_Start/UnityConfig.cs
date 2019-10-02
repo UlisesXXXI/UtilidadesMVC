@@ -12,6 +12,7 @@ using utilidades.BLL;
 using utilidades.DAL.dbContext;
 using utilidades.DAL.UsuarioYRoles;
 using Utilidades.Infraestructura;
+using Utilidades.Infraestructura.Managers.Imp;
 using Utilidades.Infraestructura.Managers.Inter;
 
 namespace Utilidades
@@ -38,6 +39,8 @@ namespace Utilidades
         {
             //Dependencias de UserManager,RoleManager,SignInService
             IdentityDependencias(container);
+
+            ManagerDependencias(container);
         }
 
         public static void IdentityDependencias(IUnityContainer container)
@@ -60,7 +63,7 @@ namespace Utilidades
 
         public static void ManagerDependencias(IUnityContainer container)
         {
-            container.RegisterType<IUsuariosManager, IUsuariosManager>();
+            container.RegisterType<IUsuariosManager, UsuarioManager>();
         }
     }
 }

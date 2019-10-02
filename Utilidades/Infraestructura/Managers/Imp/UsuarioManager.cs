@@ -12,11 +12,11 @@ namespace Utilidades.Infraestructura.Managers.Imp
     public class UsuarioManager:IUsuariosManager
     {
 
-        UserManager<ApplicationUser> _userService;
+        UserManager<ApplicationUser,string> _userService;
 
         RoleManager<ApplicationRole> _roleManager;
 
-        public UsuarioManager(UserManager<ApplicationUser> userService, RoleManager<ApplicationRole> roleManager)
+        public UsuarioManager(UserManager<ApplicationUser,string> userService, RoleManager<ApplicationRole> roleManager)
         {
             _userService = userService;
 

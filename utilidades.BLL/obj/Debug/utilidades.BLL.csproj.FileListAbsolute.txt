@@ -61,3 +61,6 @@ C:\GIT\Propios\Utilidades\utilidades.BLL\obj\Debug\utilidades.BLL.dll
 C:\GIT\Propios\Utilidades\utilidades.BLL\obj\Debug\utilidades.BLL.pdb
 C:\GIT\Propios\Utilidades\utilidades.BLL\bin\Debug\utilidades.DAL.comun.dll
 C:\GIT\Propios\Utilidades\utilidades.BLL\bin\Debug\utilidades.DAL.comun.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.BLL\bin\Debug\utilidades.DAL.comun.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.BLL\bin\Debug\utilidades.DAL.comun.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.BLL\bin\Debug\utilidades.DAL.comun.dll.config

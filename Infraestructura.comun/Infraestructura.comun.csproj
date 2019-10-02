@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Paginacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tareas\EnumEstadoResultado.cs" />
     <Compile Include="Tareas\Resultado.cs" />

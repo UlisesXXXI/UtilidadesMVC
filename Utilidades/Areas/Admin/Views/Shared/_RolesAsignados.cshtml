@@ -1,0 +1,8 @@
+﻿@model Utilidades.ViewModels.Usuarios.IRolesUsuario;
+
+@{
+    string ValorSelecionado = Model.TodosLosRoles.First();
+    SelectList roles = new SelectList(Model.TodosLosRoles, ValorSelecionado);
+}
+
+@*@Html.DropDownList("RolesAsignados", roles, null, null)*@

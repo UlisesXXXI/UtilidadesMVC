@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Unity;
 using utilidades.BLL;
+using utilidades.DAL.UsuarioYRoles;
 using Utilidades.Infraestructura;
 using Utilidades.Infraestructura.Managers.Inter;
 using Utilidades.ViewModels.Usuarios;
@@ -18,34 +19,60 @@ namespace Utilidades.Areas.Admin.Controllers
 
         private SignInService _signInService;
 
+        private RoleService _roleService;
+
         private IUsuariosManager _usuarioManager;
 
-        private IUsuariosManager UsuarioManager
-        {
-            get
-            {
-                if (_usuarioManager == null)
-                    return (((IUnityContainer)ContextoApp.Container).Resolve<IUsuariosManager>());
-                else
-                    return _usuarioManager;
-            }
-        }
+        
 
-        public UsuariosController(UserService userService, SignInService signInService)
+        public UsuariosController(UserService userService, 
+                                SignInService signInService, 
+                                RoleService roleService,
+                                IUsuariosManager usuariosManager)
         {
             _userService = userService;
 
             _signInService = signInService;
 
+            _roleService = roleService;
+
+            _usuarioManager = usuariosManager;
             
         }
 
         // GET: Admin/Usuarios
         public ActionResult Index()
         {
-            
+            var u = new ApplicationUser();
 
-            return View();
+            var Roles = _roleService.Roles.ToList();
+            
+            var listado = _userService.Users.Select(s => new UserViewModel() { Id = s.Id,
+                                                                            Activo = s.Activo,
+                                                                            Email = s.Email,
+                                                                            RolesAsignados = s.Roles.Select(x=>x.RoleId)
+                                                                            
+                                                                            
+             }).ToList();
+
+            foreach (var usu in listado)
+            {
+                    var lroles = new List<String>();
+                    foreach (var rolAsig in usu.RolesAsignados)
+                    {
+                        var role = Roles.Where(w => w.Id == rolAsig).FirstOrDefault(); 
+                        if(role != null)
+                        {
+                            lroles.Add(role.Name);
+                            
+                        }
+                    }
+                    usu.RolesAsignados = lroles;
+               
+
+            }
+
+            return View(listado);
         }
 
 
@@ -59,18 +86,37 @@ namespace Utilidades.Areas.Admin.Controllers
             return null;
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
-            var vm = UsuarioManager.RellenarNuevoUsuario();
+            var vm = _usuarioManager.RellenarNuevoUsuario();
 
             return View(vm);
         }
 
+        [HttpPost]
         public ActionResult Create(newUserViewModel usuario)
         {
-            var vm = UsuarioManager.RellenarNuevoUsuario();
+            var vm = _usuarioManager.RellenarNuevoUsuario();
 
             return View(vm);
+        }
+
+        public ActionResult Edit(string id)
+        {
+
+           var usuario =  _userService.Users.Where(w => w.Id == id).Select(s => new UserViewModel()
+            {
+                Id = s.Id,
+                Usuario = s.UserName,
+                Email = s.Email,
+                Activo = s.Activo
+
+            }).FirstOrDefault();
+
+            _usuarioManager.RellenarRolesUsuario(usuario, usuario.Id);
+
+            return View(usuario);
         }
 
 

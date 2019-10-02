@@ -10,6 +10,11 @@ namespace utilidades.DAL.UsuarioYRoles
 {
     public class ApplicationRole: IdentityRole,IActivo
     {
+
+        public ApplicationRole()
+        {
+
+        }
         public bool Activo { get; set; }
     }
 }

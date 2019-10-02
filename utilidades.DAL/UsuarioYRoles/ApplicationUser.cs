@@ -11,6 +11,11 @@ namespace utilidades.DAL.UsuarioYRoles
     {
         public bool Activo { get; set; }
 
+        public ApplicationUser()
+        {
+
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser,string> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

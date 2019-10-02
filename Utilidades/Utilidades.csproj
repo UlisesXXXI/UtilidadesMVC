@@ -219,6 +219,10 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Repositorio\Views\web.config" />
     <Content Include="Areas\Admin\Views\Usuarios\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Usuarios\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Usuarios\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_RolesAsignados.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -272,7 +276,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Repositorio\Controllers\" />
     <Folder Include="Areas\Repositorio\Models\" />
     <Folder Include="Areas\Repositorio\Views\Shared\" />
