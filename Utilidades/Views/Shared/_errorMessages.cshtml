@@ -1,0 +1,43 @@
+﻿@using Utilidades.Infraestructura.Constantes;
+@using Utilidades.Infraestructura.Managers.Imp
+
+@{
+    List<Message> _messages = TempData[MessageManagerConst.MESSAGES_TEMP_DATA] as List<Message>;
+    if (_messages == null)
+    {
+        _messages = new List<Message>();
+    }
+
+    string success = "alert alert-success alert-dismissible";
+    string info = "alert alert-info alert-dismissible";
+    string warning = "alert alert-warning alert-dismissible";
+    string danger = "alert alert-danger alert-dismissible";
+    string divClass = "";
+
+}
+
+@foreach (var msg in _messages)
+{
+    switch (msg.MessageType)
+    {
+        case MessageType.Error:
+            divClass = danger;
+            break;
+        case MessageType.Aviso:
+            divClass = info;
+            break;
+        case MessageType.Normal:
+            divClass = success;
+            break;
+        default:
+            divClass = success;
+            break;
+    }
+
+<div class="@divClass" role="alert" style="opacity:.7">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    @msg.message
+</div>
+
+}
+

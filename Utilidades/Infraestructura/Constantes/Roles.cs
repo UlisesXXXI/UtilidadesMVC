@@ -9,7 +9,7 @@ namespace Utilidades.Infraestructura.Constantes
     {
         public const string ADMINISTRADOR = "Administrador";
 
-        public const string USUARIO = "Usuario";
+        public const string EDITOR = "Editor";
 
         public const string LECTOR = "Lector";
     }

@@ -64,3 +64,4 @@ J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\bin\Debug\utilidades.DAL.comun.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\bin\Debug\utilidades.DAL.comun.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\bin\Debug\utilidades.DAL.comun.dll.config
 C:\GIT\Propios\Utilidades\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.TiposArticulosTags.resources
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.TiposArticulosTags.resources

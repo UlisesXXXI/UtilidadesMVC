@@ -13,5 +13,5 @@ C:\GIT\Propios\Utilidades\Infraestructura.recursos\obj\Debug\Infraestructura.rec
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.Entidades.Usuario.resources
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.Errores.Usuarios.resources
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.csproj.GenerateResource.cache
-J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.csprojAssemblyReference.cache
 C:\GIT\Propios\Utilidades\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.csprojResolveAssemblyReference.cache
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.recursos\obj\Debug\Infraestructura.recursos.csprojAssemblyReference.cache

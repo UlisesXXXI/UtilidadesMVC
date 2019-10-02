@@ -9,11 +9,11 @@ namespace Utilidades.Infraestructura.Managers.Inter
 {
     public interface IUsuariosManager
     {
-        newUserViewModel RellenarNuevoUsuario();
+        NuevoUsuarioViewModel RellenarNuevoUsuario();
 
         void RellenarRolesUsuario(IRolesUsuario contenedorRoles,string id);
 
-        void RellenarCombosUsuario(newUserViewModel vm);
+        void RellenarCombosUsuario(NuevoUsuarioViewModel vm);
         
     }
 }

@@ -7,5 +7,5 @@ J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades.seguridad\bin\Debug\Utilidades.segurid
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.csproj.CoreCompileInputs.cache
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.pdb
-J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.csprojAssemblyReference.cache
 C:\GIT\Propios\Utilidades\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.csprojResolveAssemblyReference.cache
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.csprojAssemblyReference.cache

@@ -23,10 +23,11 @@ namespace Utilidades.Infraestructura.Managers.Imp
             _roleManager = roleManager;
         }
 
-        public ViewModels.Usuarios.newUserViewModel RellenarNuevoUsuario()
+        public ViewModels.Usuarios.NuevoUsuarioViewModel RellenarNuevoUsuario()
         {
-            var userVm = new newUserViewModel();
+            var userVm = new NuevoUsuarioViewModel();
 
+            
             RellenarRolesUsuario(userVm, null);
 
             return userVm;
@@ -35,10 +36,10 @@ namespace Utilidades.Infraestructura.Managers.Imp
         public void RellenarRolesUsuario(ViewModels.Usuarios.IRolesUsuario contenedorRoles, string id)
         {
 
-            contenedorRoles.RolesAsignados = new List<string>();
-
             if (!String.IsNullOrEmpty(id))
             {
+                contenedorRoles.RolesAsignados = new List<string>() { Infraestructura.Constantes.Roles.EDITOR};
+
                 contenedorRoles.RolesAsignados = _userService.GetRoles(id);
             }
 
@@ -46,7 +47,7 @@ namespace Utilidades.Infraestructura.Managers.Imp
         }
 
 
-        public void RellenarCombosUsuario(newUserViewModel vm)
+        public void RellenarCombosUsuario(NuevoUsuarioViewModel vm)
         {
 
             vm.TodosLosRoles = _roleManager.Roles.Select(s => s.Name).ToList();

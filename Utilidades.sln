@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilidades", "Utilidades\Utilidades.csproj", "{2F2D8F10-CE24-4D7A-A02A-68EE8AC6BD09}"
 EndProject
@@ -71,5 +71,8 @@ Global
 		{68478DAF-9209-4358-8A6F-2E4D11B4D4F5} = {2B9E6853-17E4-4438-986A-E3F5B841960F}
 		{18370B0A-FE9A-4195-9BBB-C1E5A369B7EC} = {C3D4B555-1A3A-4305-9A05-00D4826F650A}
 		{B38C4FBE-F279-46DD-AAFB-B65690BE63FA} = {2B9E6853-17E4-4438-986A-E3F5B841960F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2FCD685-7475-425E-B515-376B4A353096}
 	EndGlobalSection
 EndGlobal

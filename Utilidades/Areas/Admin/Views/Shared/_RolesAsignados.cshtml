@@ -1,8 +1,17 @@
-﻿@model Utilidades.ViewModels.Usuarios.IRolesUsuario;
+﻿@model  Utilidades.ViewModels.Usuarios.IRolesUsuario
 
 @{
     string ValorSelecionado = Model.TodosLosRoles.First();
     SelectList roles = new SelectList(Model.TodosLosRoles, ValorSelecionado);
 }
 
-@*@Html.DropDownList("RolesAsignados", roles, null, null)*@
+<div class="form-group">
+    <label for="sel1" class="control-label col-md-2">Role:</label>
+    <div class=" col-md-10">
+        
+        @Html.DropDownList("RolesAsignados", roles, null, new { @class = "form-control" })
+    </div>
+    
+</div>
+
+

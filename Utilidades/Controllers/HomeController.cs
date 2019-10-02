@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Utilidades.Infraestructura;
+using Utilidades.Infraestructura.Helpers.Controllers;
 
 namespace Utilidades.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {

@@ -20,24 +20,14 @@ namespace Utilidades.ViewModels.Usuarios
             public string Id { get; set; }
 
             [Required]
-          
             public string Usuario { get; set; }
 
             [Required]
             [DataType(dataType: DataType.EmailAddress)]
-         
             public string Email { get; set; }
 
             
             public bool Activo { get; set; }
-
-            [DataType(DataType.Password)]
-            
-            public string Password { get; set; }
-
-            [DataType(DataType.Password)]
-            [Compare("Password")]
-            public string RePassword { get; set; }
 
 
             public IEnumerable<string> RolesAsignados { get; set; }
