@@ -8,3 +8,4 @@ J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.c
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.csprojAssemblyReference.cache
+C:\GIT\Propios\Utilidades\Infraestructura.comun\obj\Debug\Infraestructura.comun.csprojResolveAssemblyReference.cache
