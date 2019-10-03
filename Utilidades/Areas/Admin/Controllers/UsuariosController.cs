@@ -14,7 +14,7 @@ using Utilidades.ViewModels.Usuarios;
 
 namespace Utilidades.Areas.Admin.Controllers
 {
-    
+    [Authorize(Roles = Infraestructura.Constantes.Roles.ADMINISTRADOR)]
     public class UsuariosController : BaseController
     {
         private UserService _userService;
@@ -51,6 +51,7 @@ namespace Utilidades.Areas.Admin.Controllers
                                                                             Activo = s.Activo,
                                                                             Usuario = s.UserName,
                                                                             Email = s.Email,
+                                                                            Nombre = s.Nombre,
                                                                             RolesAsignados = s.Roles.Select(x=>x.RoleId)
                                                                             
                                                                             
@@ -77,16 +78,6 @@ namespace Utilidades.Areas.Admin.Controllers
         }
 
 
-        public ActionResult LogIn()
-        {
-            return null;
-        }
-
-        public ActionResult LogOut()
-        {
-            return null;
-        }
-
         [HttpGet]
         public ActionResult Create()
         {
@@ -104,7 +95,8 @@ namespace Utilidades.Areas.Admin.Controllers
                 {
                     Activo = usuVm.Activo,
                     UserName = usuVm.Usuario,
-                    Email = usuVm.Email
+                    Email = usuVm.Email,
+                    Nombre = usuVm.Nombre,
                 };
 
 
@@ -139,7 +131,8 @@ namespace Utilidades.Areas.Admin.Controllers
                 Id = s.Id,
                 Usuario = s.UserName,
                 Email = s.Email,
-                Activo = s.Activo
+                Activo = s.Activo,
+                Nombre = s.Nombre
 
             }).FirstOrDefault();
 
@@ -162,6 +155,8 @@ namespace Utilidades.Areas.Admin.Controllers
                 usuarioB.Email = user.Email;
 
                 usuarioB.Activo = user.Activo;
+
+                usuarioB.Nombre = user.Nombre;
 
                 var rolesAsignados = usuarioB.Roles.Select(s => s.RoleId).ToList();
 

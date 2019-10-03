@@ -12,5 +12,11 @@ namespace Utilidades.Infraestructura.Seguridad.inter
         bool TieneRol(string role);
 
         string NombreUsuario();
+
+        bool EsAdministrador();
+
+        bool EsEditor();
+
+        bool EsLector();
     }
 }

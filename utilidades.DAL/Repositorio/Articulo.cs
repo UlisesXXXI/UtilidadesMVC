@@ -34,9 +34,13 @@ namespace utilidades.DAL.Repositorio
 
         public bool Activo { get; set; }
 
+        public bool Privado { get; set; }
+
         public virtual Tipo Tipo { get; set; }
 
         public virtual ICollection<Tag> Tags { get; set; }
+
+       
 
     }
 }

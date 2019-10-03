@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -7,14 +8,23 @@ using utilidades.DAL.comun.inter;
 
 namespace utilidades.DAL.UsuarioYRoles
 {
-    public class ApplicationUser:  IdentityUser,IActivo
+    public class ApplicationUser:  IdentityUser,IActivo,ISistema
     {
-        public bool Activo { get; set; }
+      
 
         public ApplicationUser()
         {
 
         }
+
+        [MaxLength(Configuraciones.ConstantesGeneralesConfiguracion.TAMAÑO_CADENA_MEDIANO)]
+        public string Nombre { get; set; }
+
+        public bool Activo { get; set; }
+
+        public bool Sistema { get; set; }
+
+        public byte[] Imagen { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser,string> manager)
         {

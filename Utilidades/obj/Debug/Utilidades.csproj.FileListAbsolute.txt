@@ -146,3 +146,8 @@ J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\utilidades.DAL.comun.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\Infraestructura.recursos.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\utilidades.DAL.comun.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\utilidades.DAL.comun.dll.config
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\AutoMapper.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.ValueTuple.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\AutoMapper.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\AutoMapper.xml
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.ValueTuple.xml

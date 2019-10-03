@@ -41,6 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -50,10 +53,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -177,6 +184,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutomapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -185,6 +193,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\TipoArticuloController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsuariosController.cs" />
     <Compile Include="Areas\Repositorio\RepositorioAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -197,17 +206,22 @@
     <Compile Include="Infraestructura\Comun\AppError.cs" />
     <Compile Include="Infraestructura\Constantes\MessageManagerConst.cs" />
     <Compile Include="Infraestructura\Constantes\Roles.cs" />
-    <Compile Include="Infraestructura\ContextoApp.cs" />
+    <Compile Include="Infraestructura\Constantes\Usuarios.cs" />
+    <Compile Include="Infraestructura\Comun\ContextoApp.cs" />
     <Compile Include="Infraestructura\Helpers\Controllers\BaseController.cs" />
     <Compile Include="Infraestructura\Managers\Imp\MessageManager.cs" />
     <Compile Include="Infraestructura\Managers\Imp\UsuarioManager.cs" />
     <Compile Include="Infraestructura\Managers\Inter\IUsuariosManager.cs" />
+    <Compile Include="Infraestructura\Mapper\TipoArticuloProfile.cs" />
     <Compile Include="Infraestructura\Seguridad\inter\IUsuarioActual.cs" />
-    <Compile Include="Infraestructura\Seguridad\UsuarioActual.cs" />
+    <Compile Include="Infraestructura\Seguridad\imp\UsuarioActual.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\TipoArticulo\NuevoTipoArticuloViewModel.cs" />
+    <Compile Include="ViewModels\TipoArticulo\TipoArticuloViewModel.cs" />
     <Compile Include="ViewModels\Usuarios\IRolesUsuario.cs" />
+    <Compile Include="ViewModels\Usuarios\LoginUsuarioViewModel.cs" />
     <Compile Include="ViewModels\Usuarios\NuevoUsuarioViewModel.cs" />
     <Compile Include="ViewModels\Usuarios\UserRolesViewModel.cs" />
     <Compile Include="ViewModels\Usuarios\UserViewModel.cs" />
@@ -253,8 +267,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -285,6 +297,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\TipoArticulo\" />
     <Folder Include="Areas\Repositorio\Controllers\" />
     <Folder Include="Areas\Repositorio\Models\" />
     <Folder Include="Areas\Repositorio\Views\Shared\" />

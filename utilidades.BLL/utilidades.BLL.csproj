@@ -76,7 +76,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Imp\Service.cs" />
+    <Compile Include="Imp\TipoService.cs" />
     <Compile Include="Inter\EmailService.cs" />
+    <Compile Include="Inter\IService.cs" />
+    <Compile Include="Inter\ITipoService.cs" />
     <Compile Include="RoleService.cs" />
     <Compile Include="SignInService.cs" />
     <Compile Include="SmsService.cs" />
@@ -97,8 +101,6 @@
       <Name>utilidades.DAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Imp\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

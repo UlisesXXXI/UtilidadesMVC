@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Utilidades.Infraestructura;
+using Utilidades.Infraestructura.Comun;
 using Utilidades.Infraestructura.Helpers.Controllers;
 
 namespace Utilidades.Controllers
@@ -14,23 +15,10 @@ namespace Utilidades.Controllers
         {
 
             string nombre = ContextoApp.Usuario.NombreUsuario();
-            return View();
-
-           
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
             return View();
+  
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

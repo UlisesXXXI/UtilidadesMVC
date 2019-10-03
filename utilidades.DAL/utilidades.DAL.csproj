@@ -97,6 +97,14 @@
     <Compile Include="Migrations\201910020630333_Tipos Articulos Tags.Designer.cs">
       <DependentUpon>201910020630333_Tipos Articulos Tags.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910031800323_Campos_Sistema_Y_Privado_En_Articulo.cs" />
+    <Compile Include="Migrations\201910031800323_Campos_Sistema_Y_Privado_En_Articulo.Designer.cs">
+      <DependentUpon>201910031800323_Campos_Sistema_Y_Privado_En_Articulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910031817313_NombreUsuario.cs" />
+    <Compile Include="Migrations\201910031817313_NombreUsuario.Designer.cs">
+      <DependentUpon>201910031817313_NombreUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\Articulo.cs" />
@@ -115,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910020630333_Tipos Articulos Tags.resx">
       <DependentUpon>201910020630333_Tipos Articulos Tags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910031800323_Campos_Sistema_Y_Privado_En_Articulo.resx">
+      <DependentUpon>201910031800323_Campos_Sistema_Y_Privado_En_Articulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910031817313_NombreUsuario.resx">
+      <DependentUpon>201910031817313_NombreUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

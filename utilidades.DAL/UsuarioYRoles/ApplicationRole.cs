@@ -8,7 +8,7 @@ using utilidades.DAL.comun.inter;
 
 namespace utilidades.DAL.UsuarioYRoles
 {
-    public class ApplicationRole: IdentityRole,IActivo
+    public class ApplicationRole: IdentityRole,IActivo,ISistema
     {
 
         public ApplicationRole()
@@ -16,5 +16,7 @@ namespace utilidades.DAL.UsuarioYRoles
 
         }
         public bool Activo { get; set; }
+
+        public bool Sistema { get; set; }
     }
 }
