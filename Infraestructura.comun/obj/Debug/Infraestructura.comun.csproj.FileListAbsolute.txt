@@ -9,3 +9,7 @@ J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.c
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.pdb
 C:\GIT\Propios\Utilidades\Infraestructura.comun\obj\Debug\Infraestructura.comun.csprojResolveAssemblyReference.cache
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.csprojAssemblyReference.cache
+C:\GIT\Propios\UtilidadesMVC\Infraestructura.comun\bin\Debug\Infraestructura.comun.dll
+C:\GIT\Propios\UtilidadesMVC\Infraestructura.comun\bin\Debug\Infraestructura.comun.pdb
+C:\GIT\Propios\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.dll
+C:\GIT\Propios\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.pdb
