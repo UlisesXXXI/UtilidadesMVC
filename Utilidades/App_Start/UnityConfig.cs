@@ -9,6 +9,10 @@ using Unity.Injection;
 using Unity.Lifetime;
 using Unity.Mvc5;
 using utilidades.BLL;
+using utilidades.BLL.Imp;
+using utilidades.BLL.Inter;
+using utilidades.DAL.comun.imp;
+using utilidades.DAL.comun.inter;
 using utilidades.DAL.dbContext;
 using utilidades.DAL.UsuarioYRoles;
 using Utilidades.Infraestructura;
@@ -82,13 +86,17 @@ namespace Utilidades
         }
 
         public static void RepositoriosDependencias(IUnityContainer container)
-        {
-            
+        {   //https://stackoverflow.com/questions/35334240/unity-register-and-resolve-class-with-generic-type
+            //registramos los genericos
+            container.RegisterType(typeof(IRepositorio<>), typeof(RepositorioBase<>));
         }
 
         public static void ServiciosDependencias(IUnityContainer container)
-        {
-           
+        {   //https://stackoverflow.com/questions/35334240/unity-register-and-resolve-class-with-generic-type
+            //registramos los genericos
+            container.RegisterType(typeof(IService<>), typeof(Service<>));
+
+            container.RegisterType<ITipoService, TipoService>();
         }
     }
 }

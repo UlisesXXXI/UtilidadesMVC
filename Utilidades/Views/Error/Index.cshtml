@@ -17,8 +17,12 @@
     <div class="container">
         <div class="row" style="font-family:Arial, Helvetica, sans-serif">
             <div class="alert-danger" role="alert" style="padding:20px;margin-top:10px; opacity:0.9 ; ">Ha ocurrido un error contacte con el administrador. identificador: @Model.Id</div>
-            <div class="alert-warning" role="alert" style="padding:20px;margin-top:10px;opacity:0.9">@Model.MessageError</div>
-            <div class="alert-info" role="alert" style="padding:20px;margin-top:10px;opacity:0.9">@Model.Trace</div>
+            @if (HttpContext.Current.IsDebuggingEnabled)
+            {
+                <div class="alert-warning" role="alert" style="padding:20px;margin-top:10px;opacity:0.9">@Model.MessageError</div>
+                <div class="alert-info" role="alert" style="padding:20px;margin-top:10px;opacity:0.9">@Model.Trace</div>
+            }
+
         </div>
         @Html.ActionLink("Volver a inicio", "Index", "Home")
     </div>

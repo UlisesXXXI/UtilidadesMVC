@@ -26,7 +26,9 @@ namespace Utilidades
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var t =InicioAplicacion.ComprobarUsuarios().GetAwaiter();
+            InicioAplicacion.ComprobarUsuarios().GetAwaiter();
+
+            AutomapperConfig.Load();
         }
 
         protected void Application_Error()

@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("JIM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("JIM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand navegacion" })
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -19,7 +19,7 @@
                             Administracion
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @Html.ActionLink("Usuarios", "Index", "Usuarios", new { Area = "Admin" }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Usuarios", "Index", "Usuarios", new { Area = "Admin" }, new { @class = "dropdown-item navegacion" })
                             @*<a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <div class="dropdown-divider"></div>

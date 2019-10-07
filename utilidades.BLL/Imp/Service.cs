@@ -50,5 +50,10 @@ namespace utilidades.BLL.Imp
         {
             return _repositorio.Buscar().ToList();
         }
+
+        public IEnumerable<TEntidad> Todos()
+        {
+            return _ctx.Set<TEntidad>().AsNoTracking().ToList();
+        }
     }
 }

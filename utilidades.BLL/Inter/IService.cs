@@ -19,5 +19,7 @@ namespace utilidades.BLL.Inter
 
         IQueryable<T> Buscar(System.Linq.Expressions.Expression<Func<T, bool>> condicion);
 
+        IEnumerable<T> Todos();
+
     }
 }

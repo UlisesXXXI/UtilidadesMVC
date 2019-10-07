@@ -23,5 +23,10 @@ namespace Utilidades.Infraestructura.Comun
 
         public static IUsuarioActual Usuario { get { return _usuario; }  }
 
+        public static T Resolver<T>()
+        {
+            return ((IUnityContainer)Container).Resolve<T>();
+        }
+
     }
 }

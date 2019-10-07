@@ -1,19 +1,42 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Unity;
+using utilidades.BLL.Inter;
+using Utilidades.Infraestructura.Comun;
+using Utilidades.ViewModels.TipoArticulo;
 
 namespace Utilidades.Areas.Admin.Controllers
 {
     public class TipoArticuloController : Controller
     {
+        private ITipoService _tipoService;
+
+        public ITipoService TipoService
+       { 
+            get
+            {
+                if (_tipoService == null)
+                {
+                    _tipoService = ContextoApp.Resolver<ITipoService>();
+                }
+                return _tipoService;
+            }
+        }
+
+        public TipoArticuloController()
+        {
+
+        }
         // GET: Admin/TipoArticulo
         public ActionResult Index()
         {
+            List<TipoArticuloViewModel> tipos = Mapper.Map<List<TipoArticuloViewModel>>( TipoService.Todos());
 
-
-            return View();
+            return View(tipos);
         }
 
         // GET: Admin/TipoArticulo/Details/5

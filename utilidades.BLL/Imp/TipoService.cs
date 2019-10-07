@@ -11,7 +11,7 @@ using utilidades.DAL.Repositorio;
 
 namespace utilidades.BLL.Imp
 {
-    public class TipoService: Service<Tipo>, IService<Tipo>
+    public class TipoService: Service<Tipo>, ITipoService
     {
         public TipoService(DbContext ctx, 
                            IRepositorio<Tipo> repositorio) 
@@ -20,6 +20,6 @@ namespace utilidades.BLL.Imp
 
         }
 
-       
+      
     }
 }
