@@ -50,12 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntidadBase.cs" />
-    <Compile Include="imp\RepositorioBase.cs" />
-    <Compile Include="inter\IActivo.cs" />
-    <Compile Include="inter\IEntidadAuditable.cs" />
-    <Compile Include="inter\IEntidadBorradoLogico.cs" />
-    <Compile Include="inter\IRepositorio.cs" />
-    <Compile Include="inter\ISistema.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

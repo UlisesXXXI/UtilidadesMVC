@@ -11,8 +11,7 @@ using Unity.Mvc5;
 using utilidades.BLL;
 using utilidades.BLL.Imp;
 using utilidades.BLL.Inter;
-using utilidades.DAL.comun.imp;
-using utilidades.DAL.comun.inter;
+using utilidades.DAL.comun;
 using utilidades.DAL.dbContext;
 using utilidades.DAL.UsuarioYRoles;
 using Utilidades.Infraestructura;
@@ -59,13 +58,13 @@ namespace Utilidades
         /// <param name="container"></param>
         public static void IdentityDependencias(IUnityContainer container)
         {
-            var accountInjectionConstructor = new InjectionConstructor(new UtilidadesDbContext());
+            //var accountInjectionConstructor = new InjectionConstructor(new UtilidadesDbContext());
 
             container.RegisterType<UtilidadesDbContext>(new PerThreadLifetimeManager());
 
             container.RegisterType<DbContext, UtilidadesDbContext>(new PerThreadLifetimeManager());
 
-            container.RegisterType<IUserStore<ApplicationUser,string>, UserStore<ApplicationUser,ApplicationRole,string,IdentityUserLogin,IdentityUserRole,IdentityUserClaim>>(accountInjectionConstructor);
+            container.RegisterType<IUserStore<ApplicationUser,string>, UserStore<ApplicationUser,ApplicationRole,string,IdentityUserLogin,IdentityUserRole,IdentityUserClaim>>();
 
             container.RegisterType<IRoleStore<ApplicationRole, string>, RoleStore<ApplicationRole>>();
 

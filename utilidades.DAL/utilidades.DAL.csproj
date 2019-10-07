@@ -84,6 +84,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comun\EntidadBase.cs" />
+    <Compile Include="Comun\IActivo.cs" />
+    <Compile Include="Comun\IEntidadAuditable.cs" />
+    <Compile Include="Comun\IEntidadBorradoLogico.cs" />
+    <Compile Include="Comun\IRepositorio.cs" />
+    <Compile Include="Comun\ISistema.cs" />
+    <Compile Include="Comun\RepositorioBase.cs" />
     <Compile Include="Configuraciones\ArticuloConfiguracion.cs" />
     <Compile Include="Configuraciones\ConstantesGeneralesConfiguracion.cs" />
     <Compile Include="Configuraciones\TagsConfiguracion.cs" />
@@ -130,12 +137,6 @@
     <EmbeddedResource Include="Migrations\201910031817313_NombreUsuario.resx">
       <DependentUpon>201910031817313_NombreUsuario.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\utilidades.DAL.comun\utilidades.DAL.comun.csproj">
-      <Project>{23339e60-7490-4a31-bfd8-d32a738eff0a}</Project>
-      <Name>utilidades.DAL.comun</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dto\UsuariosYRoles\" />

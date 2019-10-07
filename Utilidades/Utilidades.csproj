@@ -247,6 +247,9 @@
     <Content Include="Areas\Admin\Views\Usuarios\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_RolesAsignados.cshtml" />
     <Content Include="Areas\Admin\Views\TipoArticulo\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TipoArticulo\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TipoArticulo\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TipoArticulo\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -304,6 +307,7 @@
     <Folder Include="Areas\Repositorio\Controllers\" />
     <Folder Include="Areas\Repositorio\Models\" />
     <Folder Include="Areas\Repositorio\Views\Shared\" />
+    <Folder Include="Infraestructura\Comun\Unity\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -320,10 +324,6 @@
     <ProjectReference Include="..\utilidades.BLL\utilidades.BLL.csproj">
       <Project>{18370b0a-fe9a-4195-9bbb-c1e5a369b7ec}</Project>
       <Name>utilidades.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\utilidades.DAL.comun\utilidades.DAL.comun.csproj">
-      <Project>{23339e60-7490-4a31-bfd8-d32a738eff0a}</Project>
-      <Name>utilidades.DAL.comun</Name>
     </ProjectReference>
     <ProjectReference Include="..\utilidades.DAL\utilidades.DAL.csproj">
       <Project>{62eb32a1-b661-48c0-a07f-64bc37f1b6bb}</Project>

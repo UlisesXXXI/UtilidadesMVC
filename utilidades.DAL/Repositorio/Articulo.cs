@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using utilidades.DAL.comun;
-using utilidades.DAL.comun.inter;
+
 
 namespace utilidades.DAL.Repositorio
 {

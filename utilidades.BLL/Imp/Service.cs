@@ -7,19 +7,21 @@ using System.Text;
 using System.Threading.Tasks;
 using utilidades.BLL.Inter;
 using utilidades.DAL.comun;
-using utilidades.DAL.comun.inter;
+using utilidades.DAL.dbContext;
 
 namespace utilidades.BLL.Imp
 {
     public class Service<TEntidad>:IService<TEntidad> where TEntidad: EntidadBase
     {
-        private DbContext _ctx;
+        private UtilidadesDbContext _ctx;
 
         private IRepositorio<TEntidad> _repositorio;
 
-        public Service(DbContext ctx,IRepositorio<TEntidad> repositorio)
+        public Service(UtilidadesDbContext ctx,IRepositorio<TEntidad> repositorio)
         {
             _ctx = ctx;
+
+            _repositorio = repositorio;
         }
 
         public virtual IQueryable<TEntidad> Buscar(Expression<Func<TEntidad, bool>> condicion)

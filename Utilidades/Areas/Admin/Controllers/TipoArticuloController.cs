@@ -6,12 +6,14 @@ using System.Web;
 using System.Web.Mvc;
 using Unity;
 using utilidades.BLL.Inter;
+using utilidades.DAL.Repositorio;
 using Utilidades.Infraestructura.Comun;
+using Utilidades.Infraestructura.Helpers.Controllers;
 using Utilidades.ViewModels.TipoArticulo;
 
 namespace Utilidades.Areas.Admin.Controllers
 {
-    public class TipoArticuloController : Controller
+    public class TipoArticuloController : BaseController
     {
         private ITipoService _tipoService;
 
@@ -19,18 +21,20 @@ namespace Utilidades.Areas.Admin.Controllers
        { 
             get
             {
-                if (_tipoService == null)
-                {
-                    _tipoService = ContextoApp.Resolver<ITipoService>();
-                }
+                //if (_tipoService == null)
+                //{
+                //    _tipoService = ContextoApp.Resolver<ITipoService>();
+                //}
                 return _tipoService;
             }
         }
 
-        public TipoArticuloController()
+        public TipoArticuloController(ITipoService tipoService)
         {
-
+            _tipoService = tipoService;
         }
+
+
         // GET: Admin/TipoArticulo
         public ActionResult Index()
         {
@@ -42,7 +46,9 @@ namespace Utilidades.Areas.Admin.Controllers
         // GET: Admin/TipoArticulo/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            TipoArticuloViewModel tipo = Mapper.Map<TipoArticuloViewModel>(TipoService.Buscar(wh=>wh.Id == id).First());
+
+            return View(tipo);
         }
 
         // GET: Admin/TipoArticulo/Create
@@ -53,40 +59,54 @@ namespace Utilidades.Areas.Admin.Controllers
 
         // POST: Admin/TipoArticulo/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(NuevoTipoArticuloViewModel tipo)
         {
-            try
+            
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                Tipo entidad = Mapper.Map<Tipo>(tipo);
 
-                return RedirectToAction("Index");
+                entidad = TipoService.Guardar(entidad, ContextoApp.Usuario.NombreUsuario());
+
+                AddMessage("Tipo guardado corretamente", Infraestructura.Managers.Imp.MessageType.Normal);
+
+
+                return RedirectToAction("Edit", new { id = entidad.Id });
             }
-            catch
-            {
-                return View();
-            }
+
+            AddMessage("Hay datos incorrectos", Infraestructura.Managers.Imp.MessageType.Error);
+
+            return View(tipo);
+
         }
 
         // GET: Admin/TipoArticulo/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            TipoArticuloViewModel tipo = Mapper.Map<TipoArticuloViewModel>(TipoService.Buscar(wh => wh.Id == id).First());
+
+            return View(tipo);
         }
 
         // POST: Admin/TipoArticulo/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(TipoArticuloViewModel tipo)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                Tipo entidad = Mapper.Map<Tipo>(tipo);
 
-                return RedirectToAction("Index");
+                entidad = TipoService.Modificar(entidad, ContextoApp.Usuario.NombreUsuario());
+
+                AddMessage("Tipo guardado corretamente", Infraestructura.Managers.Imp.MessageType.Normal);
+
+
+                return RedirectToAction("Edit", new { id = entidad.Id });
             }
-            catch
-            {
-                return View();
-            }
+
+            AddMessage("Hay datos incorrectos", Infraestructura.Managers.Imp.MessageType.Error);
+
+            return View(tipo);
         }
 
         // GET: Admin/TipoArticulo/Delete/5

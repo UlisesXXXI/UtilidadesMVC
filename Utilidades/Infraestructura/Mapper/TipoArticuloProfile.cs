@@ -16,6 +16,11 @@ namespace Utilidades.Infraestructura.Mapper
 
             CreateMap<Tipo, NuevoTipoArticuloViewModel>().ForMember(dest => dest.Descripcion,
                                                                                 opt => opt.MapFrom(src => src.Descripcion));
+
+            CreateMap<TipoArticuloViewModel, Tipo>();
+
+            CreateMap<NuevoTipoArticuloViewModel,Tipo >().ForMember(dest => dest.Descripcion,
+                                                                                opt => opt.MapFrom(src => src.Descripcion));
         }
     }
 }

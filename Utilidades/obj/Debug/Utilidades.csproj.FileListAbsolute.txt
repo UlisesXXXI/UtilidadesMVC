@@ -142,10 +142,7 @@ C:\GIT\Propios\Utilidades\Utilidades\bin\utilidades.DAL.comun.pdb
 C:\GIT\Propios\Utilidades\Utilidades\bin\Infraestructura.recursos.dll
 C:\GIT\Propios\Utilidades\Utilidades\bin\Infraestructura.recursos.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\Infraestructura.recursos.dll
-J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\utilidades.DAL.comun.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\Infraestructura.recursos.pdb
-J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\utilidades.DAL.comun.pdb
-J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\utilidades.DAL.comun.dll.config
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\AutoMapper.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.ValueTuple.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\AutoMapper.pdb

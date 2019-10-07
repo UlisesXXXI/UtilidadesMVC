@@ -18,4 +18,3 @@ J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.com
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.csproj.CopyComplete
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.pdb
-J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL.comun\obj\Debug\utilidades.DAL.comun.csprojAssemblyReference.cache
