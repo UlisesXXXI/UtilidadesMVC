@@ -14,7 +14,7 @@ namespace utilidades.BLL.Imp
 {
     public class TipoService: Service<Tipo>, ITipoService
     {
-        public TipoService(UtilidadesDbContext ctx, 
+        public TipoService(DbContext ctx, 
                            IRepositorio<Tipo> repositorio) 
             :base(ctx,repositorio)
         {

@@ -63,3 +63,6 @@ C:\GIT\Propios\Utilidades\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.Tip
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.TiposArticulosTags.resources
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.Campos_Sistema_Y_Privado_En_Articulo.resources
 J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.NombreUsuario.resources
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.TipoArticuloAuditable.resources
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.Migrations.fechas.resources
+J:\PROYECTOS\ASP\UtilidadesMVC\utilidades.DAL\obj\Debug\utilidades.DAL.csprojAssemblyReference.cache

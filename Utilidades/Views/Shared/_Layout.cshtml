@@ -9,9 +9,10 @@
 
 </head>
 <body>
- 
+
     @Html.Partial("_Menu")
-    <div class="container body-content">
+    <div class="container-fluid body-content">
+
         <div id="row_messages" class="row">
             @Html.Partial("_errorMessages")
         </div>
@@ -26,9 +27,12 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datatable")
     @Scripts.Render("~/bundles/App")
 
-   
+    <script>
+        Utilidades.init();
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -21,10 +22,7 @@ namespace Utilidades.Areas.Admin.Controllers
        { 
             get
             {
-                //if (_tipoService == null)
-                //{
-                //    _tipoService = ContextoApp.Resolver<ITipoService>();
-                //}
+                
                 return _tipoService;
             }
         }
@@ -64,6 +62,7 @@ namespace Utilidades.Areas.Admin.Controllers
             
             if (ModelState.IsValid)
             {
+                
                 Tipo entidad = Mapper.Map<Tipo>(tipo);
 
                 entidad = TipoService.Guardar(entidad, ContextoApp.Usuario.NombreUsuario());
@@ -94,7 +93,9 @@ namespace Utilidades.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                Tipo entidad = Mapper.Map<Tipo>(tipo);
+                Tipo t = _tipoService.Buscar(wh => wh.Id == tipo.Id).First();
+                Tipo entidad = Mapper.Map(tipo, t);
+                
 
                 entidad = TipoService.Modificar(entidad, ContextoApp.Usuario.NombreUsuario());
 
@@ -109,26 +110,42 @@ namespace Utilidades.Areas.Admin.Controllers
             return View(tipo);
         }
 
-        // GET: Admin/TipoArticulo/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id)
         {
-            return View();
+            var Tipo = _tipoService.Buscar(wh => wh.Id == id).First();
+            if (Tipo == null)
+                throw new Exception("No se encontro la entidad");
+
+            TipoArticuloViewModel vm = new TipoArticuloViewModel();
+
+            vm = Mapper.Map(Tipo, vm);
+
+            return View(vm);
         }
 
         // POST: Admin/TipoArticulo/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(TipoArticuloViewModel tipo)
         {
+
             try
             {
-                // TODO: Add delete logic here
+              var Tipo = _tipoService.Buscar(wh => wh.Id == tipo.Id).First();
+               if (Tipo == null)
+                   throw new Exception("No se encontro la entidad");
+                _tipoService.Eliminar(wh => wh.Id == tipo.Id,ContextoApp.Usuario.NombreUsuario());
 
-                return RedirectToAction("Index");
+               AddMessage("eliminado correctamente", Infraestructura.Managers.Imp.MessageType.Error);
+              
             }
-            catch
+            catch (SqlException exc)
             {
-                return View();
+                AddMessage(exc.Errors.ToString(), Infraestructura.Managers.Imp.MessageType.Error);
+                throw;
             }
+                
+            return RedirectToAction("Index");
         }
     }
 }

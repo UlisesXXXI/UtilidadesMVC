@@ -19,7 +19,9 @@ namespace utilidades.DAL.dbContext
         public UtilidadesDbContext()
             : base("DefaultConnection")
         {
-            
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.AutoDetectChangesEnabled = false;
+            this.Configuration.ValidateOnSaveEnabled = false;
         }
 
         #region DbSet's

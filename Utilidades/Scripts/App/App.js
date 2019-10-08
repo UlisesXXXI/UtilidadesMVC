@@ -37,6 +37,9 @@ Utilidades = (function () {
         $('.navbar .navegacion').click(CargarSpinner);
        
     }
+    var CargarDatatables = function () {
+        $("[data-dt='true']").DataTable();
+    }
 
     var CargarEventos = function () {
         CargarEventosBarraNavegador();
@@ -45,6 +48,7 @@ Utilidades = (function () {
 
     var init = function () {
         CargarEventos();
+        CargarDatatables();
     }
 
     return {

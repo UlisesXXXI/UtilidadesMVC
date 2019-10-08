@@ -19,7 +19,7 @@ namespace utilidades.DAL.comun
 
         T Eliminar(params object[] Key);
 
-        void Eliminar(System.Linq.Expressions.Expression<Func<T, bool>> where, bool autoguardado = false);
+        void Eliminar(System.Linq.Expressions.Expression<Func<T, bool>> where,string usuario, bool autoguardado = false);
         
         void Eliminar(T entidad,bool autoguardado = false);
 

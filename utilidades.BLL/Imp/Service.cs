@@ -13,11 +13,11 @@ namespace utilidades.BLL.Imp
 {
     public class Service<TEntidad>:IService<TEntidad> where TEntidad: EntidadBase
     {
-        private UtilidadesDbContext _ctx;
+        private DbContext _ctx;
 
         private IRepositorio<TEntidad> _repositorio;
 
-        public Service(UtilidadesDbContext ctx,IRepositorio<TEntidad> repositorio)
+        public Service(DbContext ctx,IRepositorio<TEntidad> repositorio)
         {
             _ctx = ctx;
 
@@ -26,12 +26,12 @@ namespace utilidades.BLL.Imp
 
         public virtual IQueryable<TEntidad> Buscar(Expression<Func<TEntidad, bool>> condicion)
         {
-            return _repositorio.Buscar(condicion);
+            return _repositorio.Buscar(condicion).AsNoTracking();
         }
 
-        public virtual void Eliminar(Expression<Func<TEntidad, bool>> condicion)
+        public virtual void Eliminar(Expression<Func<TEntidad, bool>> condicion,string usuario = "")
         {
-             _repositorio.Eliminar(condicion, true);
+             _repositorio.Eliminar(condicion,usuario, true);
         }
 
         

@@ -5,7 +5,11 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>TipoArticuloViewModel</h4>
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Tipos", "Index", "TipoArticulo", new { Area = "Admin" })</li>
+            <li class="active">Editar</li>
+            <li class="active">@Model.Id</li>
+        </ol>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -20,7 +24,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn btn-success" />
             </div>
         </div>
     </div>

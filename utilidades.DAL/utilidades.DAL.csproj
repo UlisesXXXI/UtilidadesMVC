@@ -112,6 +112,14 @@
     <Compile Include="Migrations\201910031817313_NombreUsuario.Designer.cs">
       <DependentUpon>201910031817313_NombreUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910081641596_TipoArticuloAuditable.cs" />
+    <Compile Include="Migrations\201910081641596_TipoArticuloAuditable.Designer.cs">
+      <DependentUpon>201910081641596_TipoArticuloAuditable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910081646438_fechas.cs" />
+    <Compile Include="Migrations\201910081646438_fechas.Designer.cs">
+      <DependentUpon>201910081646438_fechas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\Articulo.cs" />
@@ -136,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910031817313_NombreUsuario.resx">
       <DependentUpon>201910031817313_NombreUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910081641596_TipoArticuloAuditable.resx">
+      <DependentUpon>201910081641596_TipoArticuloAuditable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910081646438_fechas.resx">
+      <DependentUpon>201910081646438_fechas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

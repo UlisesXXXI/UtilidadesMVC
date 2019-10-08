@@ -15,7 +15,7 @@ namespace utilidades.BLL.Inter
 
         T Modificar(T tipo,string usuario);
 
-        void Eliminar(System.Linq.Expressions.Expression<Func<T, bool>> condicion);
+        void Eliminar(System.Linq.Expressions.Expression<Func<T, bool>> condicion,string usuario = "");
 
         IQueryable<T> Buscar(System.Linq.Expressions.Expression<Func<T, bool>> condicion);
 

@@ -1,0 +1,30 @@
+﻿@model Utilidades.ViewModels.TipoArticulo.TipoArticuloViewModel
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Tipos", "Index", "TipoArticulo", new { Area = "Admin" })</li>
+    <li class="active">Eliminar</li>
+    <li class="active">@Model.Id</li>
+</ol>
+<h3 style="color:tomato">¿Estas seguro de eliminar el tipo?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+           
+        </div>
+    }
+</div>

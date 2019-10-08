@@ -13,11 +13,11 @@ namespace utilidades.DAL.comun
     public class RepositorioBase<TEntity>:IRepositorio<TEntity> where TEntity:EntidadBase
     {
 
-        private UtilidadesDbContext _ctx;
+        private DbContext _ctx;
 
         private DbSet<TEntity> _dbSet;
 
-        public RepositorioBase(UtilidadesDbContext ctx)
+        public RepositorioBase(DbContext ctx)
         {
             _ctx = ctx;
             _dbSet = ctx.Set<TEntity>();
@@ -131,9 +131,24 @@ namespace utilidades.DAL.comun
 
         
 
-       public void Eliminar(System.Linq.Expressions.Expression<Func<TEntity,bool>> where, bool autoguardado = false)
+       public void Eliminar(System.Linq.Expressions.Expression<Func<TEntity,bool>> where,string usuario="", bool autoguardado = false)
        {
- 	       throw new NotImplementedException();
+            TEntity entidad = _ctx.Set<TEntity>().Where(where).AsNoTracking().First();
+
+            if (entidad == null)
+                throw new Exception("Entidad no encontrada");
+
+            if(entidad is IEntidadBorradoLogico)
+            {
+                ((IEntidadBorradoLogico)entidad).Borrado = true;
+                Guardar(entidad, usuario, autoguardado);
+            }
+            else
+            {
+                _ctx.Entry(entidad).State = EntityState.Deleted;
+
+                if (autoguardado) GuardarContexto();
+            }
        }
 
        public void Eliminar(TEntity entidad, bool autoguardado = false)

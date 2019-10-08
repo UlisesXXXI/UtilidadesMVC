@@ -60,9 +60,9 @@ namespace Utilidades
         {
             //var accountInjectionConstructor = new InjectionConstructor(new UtilidadesDbContext());
 
-            container.RegisterType<UtilidadesDbContext>(new PerThreadLifetimeManager());
+            container.RegisterType<UtilidadesDbContext>(new PerResolveLifetimeManager());
 
-            container.RegisterType<DbContext, UtilidadesDbContext>(new PerThreadLifetimeManager());
+            container.RegisterType<DbContext, UtilidadesDbContext>(new PerResolveLifetimeManager());
 
             container.RegisterType<IUserStore<ApplicationUser,string>, UserStore<ApplicationUser,ApplicationRole,string,IdentityUserLogin,IdentityUserRole,IdentityUserClaim>>();
 
@@ -70,7 +70,7 @@ namespace Utilidades
 
             container.RegisterType<IAuthenticationManager>(new InjectionFactory(o => HttpContext.Current.GetOwinContext().Authentication));
 
-            container.RegisterType<UtilidadesDbContext>();
+        
 
             container.RegisterType<SignInService>();
 
