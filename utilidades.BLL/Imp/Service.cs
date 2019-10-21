@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 using utilidades.BLL.Inter;
 using utilidades.DAL.comun;
 using utilidades.DAL.dbContext;
+using utilidades.Entities.Comun;
 
 namespace utilidades.BLL.Imp
 {
     public class Service<TEntidad>:IService<TEntidad> where TEntidad: EntidadBase
     {
-        private DbContext _ctx;
+        protected DbContext _ctx;
 
-        private IRepositorio<TEntidad> _repositorio;
+        protected IRepositorio<TEntidad> _repositorio;
 
         public Service(DbContext ctx,IRepositorio<TEntidad> repositorio)
         {

@@ -43,7 +43,7 @@ Utilidades = (function () {
 
     var CargarEventos = function () {
         CargarEventosBarraNavegador();
-        console.log('Cargarevento');
+        
     }
 
     var init = function () {

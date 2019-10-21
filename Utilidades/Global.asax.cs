@@ -66,10 +66,30 @@ namespace Utilidades
                 ctl.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
                 // at this point how to properly pass route data to error controller?
             }
+            else
+            {
+                RouteData routeData = new RouteData();
+                routeData.Values.Add("controller", "Error");
+                Server.ClearError();
+                var appError = SanitizarError(ex);
+                routeData.Values.Add("appError", appError);
+                routeData.Values.Add("action", "Index");
+                IController ctl = new ErrorController();
+                ctl.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
+            }
 
 
 
 
+        }
+
+        private AppError SanitizarError(Exception excepcion)
+        {
+            AppError customError = new AppError();
+            customError.Id = Guid.NewGuid().ToString();
+            customError.MessageError = excepcion.Message;
+            customError.Trace = excepcion.StackTrace;
+            return customError;
         }
 
         private AppError SanitizarError(HttpException httpException)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infraestructura.comun.Configuraciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace Utilidades.ViewModels.Usuarios
             [DataType(dataType: DataType.EmailAddress)]
             public string Email { get; set; }
 
-            [StringLength(utilidades.DAL.Configuraciones.ConstantesGeneralesConfiguracion.TAMAÑO_CADENA_MEDIANO)]
+            [StringLength(ConstantesGeneralesConfiguracion.TAMAÑO_CADENA_MEDIANO)]
             public string Nombre { get; set; }
 
 

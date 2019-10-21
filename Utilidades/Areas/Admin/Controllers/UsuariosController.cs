@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infraestructura.comun.Constantes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Unity;
 using utilidades.BLL;
-using utilidades.DAL.UsuarioYRoles;
+using utilidades.Entities.UsuarioYRoles;
 using Utilidades.Infraestructura.Helpers.Controllers;
 using Utilidades.Infraestructura.Managers.Imp;
 using Utilidades.Infraestructura.Managers.Inter;
@@ -14,7 +15,7 @@ using Utilidades.ViewModels.Usuarios;
 
 namespace Utilidades.Areas.Admin.Controllers
 {
-    [Authorize(Roles = Infraestructura.Constantes.Roles.ADMINISTRADOR)]
+    [Authorize(Roles = Roles.ADMINISTRADOR)]
     public class UsuariosController : BaseController
     {
         private UserService _userService;
@@ -182,6 +183,31 @@ namespace Utilidades.Areas.Admin.Controllers
             return View(user);
         }
 
+
+        public async Task<ActionResult> Delete(string id)
+        {
+
+            ApplicationUser user = await _userService.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                AddMessage("No se encontro el usuario", MessageType.Error);
+
+                
+
+            }
+
+            var resultado = await _userService.DeleteAsync(user);
+
+            if (!resultado.Succeeded)
+            {
+                AddMessage("hubo un error al eliminar", MessageType.Error);
+            }
+
+            return RedirectToAction("Index", "Usuarios", new { Area = "Admin" });
+
+
+        }
 
 
 

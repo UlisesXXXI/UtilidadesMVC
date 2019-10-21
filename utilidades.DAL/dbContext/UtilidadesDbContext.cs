@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using utilidades.DAL.UsuarioYRoles;
-using utilidades.DAL.Repositorio;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Diagnostics;
 using utilidades.DAL.Configuraciones;
-
+using utilidades.Entities.Repositorio;
+using utilidades.Entities.UsuarioYRoles;
 
 namespace utilidades.DAL.dbContext
 {
@@ -19,9 +14,27 @@ namespace utilidades.DAL.dbContext
         public UtilidadesDbContext()
             : base("DefaultConnection")
         {
+            
+            ConfiguracionDBContext();
+
+            Database.Log = EscribirLog;
+
+        }
+
+        private void EscribirLog(string msg)
+        {
+            Debug.WriteLine(msg);
+        }
+
+        private void ConfiguracionDBContext()
+        {
             this.Configuration.LazyLoadingEnabled = false;
+
             this.Configuration.AutoDetectChangesEnabled = false;
+
             this.Configuration.ValidateOnSaveEnabled = false;
+
+            this.Configuration.ProxyCreationEnabled = false;
         }
 
         #region DbSet's

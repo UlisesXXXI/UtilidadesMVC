@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infraestructura.comun.Constantes;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Utilidades.Infraestructura.Managers.Imp;
@@ -36,7 +37,7 @@ namespace Utilidades.Infraestructura.Helpers.Controllers
         {
             if (filterContext.Result is JsonResult) return;
 
-            List<Message> oldMessages =  TempData[Constantes.MessageManagerConst.MESSAGES_TEMP_DATA] as List<Message>;
+            List<Message> oldMessages =  TempData[MessageManagerConst.MESSAGES_TEMP_DATA] as List<Message>;
             if(oldMessages == null)
             {
                 oldMessages = new List<Message>();
@@ -49,7 +50,7 @@ namespace Utilidades.Infraestructura.Helpers.Controllers
                 }
             }
 
-            TempData[Constantes.MessageManagerConst.MESSAGES_TEMP_DATA] = oldMessages;
+            TempData[MessageManagerConst.MESSAGES_TEMP_DATA] = oldMessages;
             
            
         }

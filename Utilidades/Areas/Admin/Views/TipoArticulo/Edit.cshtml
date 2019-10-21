@@ -1,33 +1,38 @@
 ﻿@model Utilidades.ViewModels.TipoArticulo.TipoArticuloViewModel
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "TipoArticulo", FormMethod.Post,new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <ol class="breadcrumb">
-            <li>@Html.ActionLink("Tipos", "Index", "TipoArticulo", new { Area = "Admin" })</li>
-            <li class="active">Editar</li>
-            <li class="active">@Model.Id</li>
-        </ol>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+<div class="form-horizontal">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("TipoArticulo", "Index", "TipoArticulo", new { Area = "Admin" })</li>
+        <li class="active">Editar</li>
+        <li class="active">@Model.Id</li>
+    </ol>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-success" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+       
+        <label class="control-label col-md-2">Subir Imagen</label>
+        <input type="file" name="file" id="file_tipo"  class="form-control"/>
+    </div>
+    <img src="@Model.Base64()" style="height:200px; border:dashed 0.5px" />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-success" />
+        </div>
+    </div>
+</div>
 }
 
 <div>

@@ -1,36 +1,80 @@
-﻿@{
+﻿@model List<Utilidades.ViewModels.Articulo.ArticuloViewModel>
+@{
     ViewBag.Title = "Home Page";
 }
+
+<style>
+    .imgblog {
+        position: relative;
+    }
+
+    .entradablog {
+        position: relative;
+        display: inline;
+        width: 350px;
+        height: 200px;
+        overflow: hidden;
+        cursor:pointer;
+    }
+
+    .piecontainer {
+        position: absolute;
+        bottom: 0px;
+        padding: 10px;
+        color: white;
+        background-color: black;
+        opacity: 0.8;
+        width: 100%;
+    }
+
+    .titulodocumento {
+        font-size: 1.3em;
+    }
+
+    .autordocumento {
+        font-size: 0.8em;
+    }
+</style>
 <div class="row">
-    <div class="col-lg-8 col-lg-offset-1">
-        <div class="panel panel-success">
-            <div class="panel-heading">Articulo 1</div>
-            <div class="panel-body">
-                ..
+    <div class="col-md-12 col-lg-10 ">
+        @foreach (var articulo in Model)
+        {
+            <a href="@Url.Action("Articulo","Home",new { id=articulo.Id})">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 entradablog" >
+                <img src="@articulo.Base64()" class="imgblog" click="console.log('hola')">
+                <div class="piecontainer">
+                    <div class="titulodocumento"> @articulo.Titulo</div>
+                    <div class="autordocumento">@articulo.UsuarioCreacion - @articulo.FechaCreacion</div>
+                </div>
             </div>
-        </div>
-        <div class="panel panel-success">
-            <div class="panel-heading">Articulo</div>
-            <div class="panel-body">
-                ..
-            </div>
-        </div>
-        <div class="panel panel-success">
-            <div class="panel-heading">Articulo</div>
-            <div class="panel-body">
-                ..
-            </div>
-        </div>
+                </a>
+        }
+
     </div>
-    <div class="col-lg-2 col-lg-offset-1">
-        <div class="panel panel-success">
+
+
+
+    <div class="col-md-12 col-lg-2 ">
+
+
+        <div class="panel panel-primary">
             <div class="panel-heading">Busqueda</div>
+            <form>
+                <div class="panel-body">
+                    <input type="text" id="busqueda" name="busqueda" class="form-control" />
+                </div>
+            </form>
+            
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">General</div>
             <div class="panel-body">
-                ..
+                @Html.ActionLink("Iniciar Sesion", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink", @class = "navegacion" })
             </div>
         </div>
     </div>
-    
+
 
 
 </div>

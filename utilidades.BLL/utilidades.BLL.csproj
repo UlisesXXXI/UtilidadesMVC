@@ -76,11 +76,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Imp\ArticuloService.cs" />
     <Compile Include="Imp\Service.cs" />
+    <Compile Include="Imp\TagService.cs" />
     <Compile Include="Imp\TipoService.cs" />
     <Compile Include="Inter\EmailService.cs" />
+    <Compile Include="Inter\IArticuloService.cs" />
     <Compile Include="Inter\IService.cs" />
     <Compile Include="Inter\ITipoService.cs" />
+    <Compile Include="Inter\ITagService.cs" />
     <Compile Include="RoleService.cs" />
     <Compile Include="SignInService.cs" />
     <Compile Include="SmsService.cs" />
@@ -92,9 +96,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infraestructura.comun\Infraestructura.comun.csproj">
+      <Project>{b38c4fbe-f279-46dd-aafb-b65690be63fa}</Project>
+      <Name>Infraestructura.comun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\utilidades.DAL\utilidades.DAL.csproj">
       <Project>{62EB32A1-B661-48C0-A07F-64BC37F1B6BB}</Project>
       <Name>utilidades.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilidades.Entities\Utilidades.Entities.csproj">
+      <Project>{C0319AC9-744E-4ABC-8921-F2E56A991B1D}</Project>
+      <Name>Utilidades.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

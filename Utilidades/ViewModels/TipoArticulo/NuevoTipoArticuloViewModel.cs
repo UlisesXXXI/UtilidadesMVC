@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infraestructura.comun.Configuraciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace Utilidades.ViewModels.TipoArticulo
 
         }
 
-        [MaxLength(utilidades.DAL.Configuraciones.ConstantesGeneralesConfiguracion.TAMAÑO_CADENA_PEQUEÑO)]
+        [MaxLength(ConstantesGeneralesConfiguracion.TAMAÑO_CADENA_PEQUEÑO)]
         public string Descripcion { get; set; }
+
+       
     }
 }

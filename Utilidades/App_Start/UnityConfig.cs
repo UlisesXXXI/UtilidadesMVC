@@ -1,3 +1,4 @@
+using Infraestructura.comun.Shared;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -13,8 +14,7 @@ using utilidades.BLL.Imp;
 using utilidades.BLL.Inter;
 using utilidades.DAL.comun;
 using utilidades.DAL.dbContext;
-using utilidades.DAL.UsuarioYRoles;
-using Utilidades.Infraestructura;
+using utilidades.Entities.UsuarioYRoles;
 using Utilidades.Infraestructura.Comun;
 using Utilidades.Infraestructura.Managers.Imp;
 using Utilidades.Infraestructura.Managers.Inter;
@@ -82,6 +82,8 @@ namespace Utilidades
         public static void ManagerDependencias(IUnityContainer container)
         {
             container.RegisterType<IUsuariosManager, UsuarioManager>();
+
+            container.RegisterType<IArticuloManager, ArticuloManager>();
         }
 
         public static void RepositoriosDependencias(IUnityContainer container)
@@ -96,6 +98,10 @@ namespace Utilidades
             container.RegisterType(typeof(IService<>), typeof(Service<>));
 
             container.RegisterType<ITipoService, TipoService>();
+
+            container.RegisterType<ITagService, TagService>();
+
+            container.RegisterType<IArticuloService, ArticuloService>();
         }
     }
 }

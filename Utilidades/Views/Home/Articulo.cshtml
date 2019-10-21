@@ -1,0 +1,29 @@
+﻿@model Utilidades.ViewModels.Articulo.ArticuloViewModel
+@using Infraestructura.comun.Shared
+
+<div>
+    <h2>@Model.Titulo
+                @if(ContextoApp.Usuario.EsAdministrador || ContextoApp.Usuario.NombreUsuario == Model.UsuarioCreacion)
+                {
+                    <a href="@Url.Action("Edit","Articulo",new { area="Repositorio",id=Model.Id})"><span class="glyphicon glyphicon-pencil"></span></a>
+                }
+    </h2>
+    <h5>@Model.UsuarioCreacion - @Model.FechaCreacion</h5>
+    @foreach (var bag in Model.TagsSeleccionados)
+    {
+        <span class="badge">@bag.Descripcion</span>
+    }
+    <hr />
+    @Html.Raw(Model.Contenido)
+
+
+</div>
+
+
+
+@section scripts{
+
+
+
+
+}

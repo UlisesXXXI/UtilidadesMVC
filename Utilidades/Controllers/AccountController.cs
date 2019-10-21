@@ -1,17 +1,10 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using utilidades.BLL;
-using utilidades.DAL.UsuarioYRoles;
 using Utilidades.Infraestructura.Helpers.Controllers;
-using Utilidades.Models;
 using Utilidades.ViewModels.Usuarios;
 
 namespace Utilidades.Controllers

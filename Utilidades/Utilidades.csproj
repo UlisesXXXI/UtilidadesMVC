@@ -45,6 +45,12 @@
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -193,8 +199,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\TagController.cs" />
     <Compile Include="Areas\Admin\Controllers\TipoArticuloController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsuariosController.cs" />
+    <Compile Include="Areas\Repositorio\Controllers\ArticuloController.cs" />
     <Compile Include="Areas\Repositorio\RepositorioAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -204,21 +212,25 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infraestructura\Comun\AppError.cs" />
-    <Compile Include="Infraestructura\Constantes\MessageManagerConst.cs" />
-    <Compile Include="Infraestructura\Constantes\Roles.cs" />
-    <Compile Include="Infraestructura\Constantes\Usuarios.cs" />
-    <Compile Include="Infraestructura\Comun\ContextoApp.cs" />
+    <Compile Include="Infraestructura\Comun\Json\ResultadoJson.cs" />
     <Compile Include="Infraestructura\Helpers\Controllers\BaseController.cs" />
+    <Compile Include="Infraestructura\Managers\Imp\ArticuloManager.cs" />
     <Compile Include="Infraestructura\Managers\Imp\MessageManager.cs" />
     <Compile Include="Infraestructura\Managers\Imp\UsuarioManager.cs" />
+    <Compile Include="Infraestructura\Managers\Inter\IArticuloManager.cs" />
     <Compile Include="Infraestructura\Managers\Inter\IUsuariosManager.cs" />
+    <Compile Include="Infraestructura\Mapper\ArticuloProfile.cs" />
+    <Compile Include="Infraestructura\Mapper\TagProfile.cs" />
     <Compile Include="Infraestructura\Mapper\TipoArticuloProfile.cs" />
-    <Compile Include="Infraestructura\Seguridad\inter\IUsuarioActual.cs" />
-    <Compile Include="Infraestructura\Seguridad\imp\UsuarioActual.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Articulo\ArticuloViewModel.cs" />
+    <Compile Include="ViewModels\Articulo\ArticuloViewModelBase.cs" />
+    <Compile Include="ViewModels\Tag\SelectableTagViewModel.cs" />
+    <Compile Include="ViewModels\Tag\TagViewModel.cs" />
     <Compile Include="ViewModels\TipoArticulo\NuevoTipoArticuloViewModel.cs" />
+    <Compile Include="ViewModels\TipoArticulo\SelectableTipoViewModel.cs" />
     <Compile Include="ViewModels\TipoArticulo\TipoArticuloViewModel.cs" />
     <Compile Include="ViewModels\Usuarios\IRolesUsuario.cs" />
     <Compile Include="ViewModels\Usuarios\LoginUsuarioViewModel.cs" />
@@ -270,14 +282,59 @@
     <Content Include="Content\dataTables.jqueryui.min.css" />
     <Content Include="Content\img\Error.jpg" />
     <Content Include="Content\img\errorimg.png" />
+    <Content Include="Content\img\images.jpg" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery.dataTables.css" />
     <Content Include="Content\jquery.dataTables.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\spinner.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\App\App.js" />
+    <Content Include="Scripts\App\Tag\Utilidades.Tag.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -292,13 +349,25 @@
     <Content Include="Areas\Admin\Views\TipoArticulo\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TipoArticulo\Details.cshtml" />
     <Content Include="Areas\Admin\Views\TipoArticulo\Delete.cshtml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Areas\Admin\Views\Tag\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Tag\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Tag\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Tag\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Tag\Delete.cshtml" />
+    <Content Include="Areas\Repositorio\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Repositorio\Views\Articulo\Index.cshtml" />
+    <Content Include="Areas\Repositorio\Views\Articulo\Create.cshtml" />
     <Content Include="Scripts\dataTables.bootstrap.js" />
     <Content Include="Scripts\dataTables.jqueryui.js" />
     <Content Include="Scripts\dataTables.jqueryui.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Areas\Repositorio\Views\Articulo\Edit.cshtml" />
+    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -308,6 +377,72 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\tinymce\changelog.txt" />
+    <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Scripts\tinymce\license.txt" />
+    <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\tinymce\skins\content\dark\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\content\default\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\content\document\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide-dark\content.mobile.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide-dark\skin.mobile.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide\content.mobile.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide\skin.mobile.min.css" />
+    <Content Include="Scripts\tinymce\themes\mobile\theme.min.js" />
+    <Content Include="Scripts\tinymce\themes\silver\theme.min.js" />
+    <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -321,7 +456,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -347,11 +481,14 @@
     <Content Include="Views\Shared\_errorMessages.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Shared\Comun\_Spinner.cshtml" />
+    <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
+    <Content Include="Scripts\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
+    <Content Include="Views\Home\Articulo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Images\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Repositorio\Controllers\" />
     <Folder Include="Areas\Repositorio\Models\" />
     <Folder Include="Areas\Repositorio\Views\Shared\" />
     <Folder Include="Infraestructura\Comun\Unity\" />
@@ -364,6 +501,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infraestructura.comun\Infraestructura.comun.csproj">
+      <Project>{B38C4FBE-F279-46DD-AAFB-B65690BE63FA}</Project>
+      <Name>Infraestructura.comun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infraestructura.recursos\Infraestructura.recursos.csproj">
       <Project>{d9865873-1804-4860-9a3d-de243e9ef7f9}</Project>
       <Name>Infraestructura.recursos</Name>
@@ -375,6 +516,10 @@
     <ProjectReference Include="..\utilidades.DAL\utilidades.DAL.csproj">
       <Project>{62eb32a1-b661-48c0-a07f-64bc37f1b6bb}</Project>
       <Name>utilidades.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilidades.Entities\Utilidades.Entities.csproj">
+      <Project>{c0319ac9-744e-4abc-8921-f2e56a991b1d}</Project>
+      <Name>Utilidades.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

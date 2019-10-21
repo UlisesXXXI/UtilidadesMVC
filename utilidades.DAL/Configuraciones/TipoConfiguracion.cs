@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
-using utilidades.DAL.Repositorio;
+﻿using Infraestructura.comun.Configuraciones;
 using System.Data.Entity.ModelConfiguration;
+using utilidades.Entities.Repositorio;
 
 namespace utilidades.DAL.Configuraciones
 {

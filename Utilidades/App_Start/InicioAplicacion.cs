@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using Unity;
 using utilidades.BLL;
-using utilidades.DAL.UsuarioYRoles;
-using Utilidades.Infraestructura;
-using Utilidades.Infraestructura.Comun;
+using utilidades.Entities.UsuarioYRoles;
+using Infraestructura.comun.Constantes;
+using Infraestructura.comun.Shared;
 
 namespace Utilidades.App_Start
 {
@@ -32,7 +29,7 @@ namespace Utilidades.App_Start
 
         public async static Task ComprobarUsuarioAdministradorAsync(UserManager<ApplicationUser,string> userManager)
         {
-            string UsuarioAdministrador = Infraestructura.Constantes.Usuarios.USUARIO_ADMINISTRADOR;
+            string UsuarioAdministrador = Usuarios.USUARIO_ADMINISTRADOR;
 
             string Email = "Administrador@admin.com";
 
@@ -55,7 +52,7 @@ namespace Utilidades.App_Start
 
                 var usuarioB = await userManager.FindByNameAsync(UsuarioAdministrador);
 
-                await userManager.AddToRoleAsync(usuarioB.Id, Infraestructura.Constantes.Roles.ADMINISTRADOR);
+                await userManager.AddToRoleAsync(usuarioB.Id, Roles.ADMINISTRADOR);
 
             }
         }
@@ -64,9 +61,9 @@ namespace Utilidades.App_Start
         {
             List<string> rolesSitema = new List<string>()
             {
-                Infraestructura.Constantes.Roles.ADMINISTRADOR,
-                Infraestructura.Constantes.Roles.EDITOR,
-                Infraestructura.Constantes.Roles.LECTOR
+                Roles.ADMINISTRADOR,
+                Roles.EDITOR,
+                Roles.LECTOR
             };
 
             foreach (var rolSistem in rolesSitema)

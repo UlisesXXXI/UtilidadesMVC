@@ -1,4 +1,5 @@
 ﻿@using Utilidades.Infraestructura.Comun
+@using Infraestructura.comun.Shared
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid" id="menu_header">
         <div class="navbar-header">
@@ -12,10 +13,10 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
-                @if (ContextoApp.Usuario.EsAdministrador())
+                @if (ContextoApp.Usuario.EsAdministrador)
                 {
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Administracion<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -25,13 +26,20 @@
                             <li>
                                 @Html.ActionLink("Tipos", "Index", "TipoArticulo", new { Area = "Admin" }, new { @class = "dropdown-item navegacion" })
                             </li>
-                           
+                            <li>
+                                @Html.ActionLink("Tags", "Index", "Tag", new { Area = "Admin" }, new { @class = "dropdown-item navegacion" })
+                            </li>
+
                             @*<a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Something else here</a>*@
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>*@
                         </ul>
                     </li>
+                }
+                @if (ContextoApp.Usuario.EstaAutentificado)
+                {
+                    @Html.ActionLink("Articulos", "Index", "Articulo", new { area = "Repositorio" }, new { @class = "navbar-brand navegacion" })
                 }
 
             </ul>

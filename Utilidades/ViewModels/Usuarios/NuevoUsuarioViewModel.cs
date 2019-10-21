@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Infraestructura.comun.Configuraciones;
+using Infraestructura.comun.Constantes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using utilidades.DAL.UsuarioYRoles;
 
 namespace Utilidades.ViewModels.Usuarios
 {
@@ -18,7 +17,7 @@ namespace Utilidades.ViewModels.Usuarios
             
             Activo = true;
 
-            RolesAsignados = new List<string>() { Infraestructura.Constantes.Roles.EDITOR };
+            RolesAsignados = new List<string>() { Roles.EDITOR };
 
             TodosLosRoles = new List<String>();
         }
@@ -30,7 +29,7 @@ namespace Utilidades.ViewModels.Usuarios
         [DataType(dataType: DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [StringLength(utilidades.DAL.Configuraciones.ConstantesGeneralesConfiguracion.TAMAÑO_CADENA_MEDIANO)]
+        [StringLength(ConstantesGeneralesConfiguracion.TAMAÑO_CADENA_MEDIANO)]
         public string Nombre { get; set; }
 
         public bool Activo { get; set; }

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects.DataClasses;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using utilidades.DAL.dbContext;
+using utilidades.Entities.Comun;
+using utilidades.Entities.Repositorio;
 
 namespace utilidades.DAL.comun
 {
@@ -30,9 +27,11 @@ namespace utilidades.DAL.comun
 
         public IQueryable<TEntity> Buscar(System.Linq.Expressions.Expression<Func<TEntity, bool>> where)
         {
-            
-            return _dbSet.Where(where);
+            if (where != null) {
+                return _dbSet.Where(where);
+            }
 
+            return _dbSet;
         }
 
         public TEntity Modificar(TEntity entidad, string usuario ="", bool autoguardado = false)
@@ -55,6 +54,8 @@ namespace utilidades.DAL.comun
                }
 
                _ctx.Entry(entidad).State = EntityState.Added;
+
+            
 
             if(autoguardado){
                 GuardarContexto();

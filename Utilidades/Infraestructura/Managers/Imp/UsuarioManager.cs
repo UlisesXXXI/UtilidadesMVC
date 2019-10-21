@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Infraestructura.comun.Constantes;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using utilidades.DAL.UsuarioYRoles;
+using utilidades.Entities.UsuarioYRoles;
 using Utilidades.Infraestructura.Managers.Inter;
 using Utilidades.ViewModels.Usuarios;
 
@@ -38,7 +38,7 @@ namespace Utilidades.Infraestructura.Managers.Imp
 
             if (!String.IsNullOrEmpty(id))
             {
-                contenedorRoles.RolesAsignados = new List<string>() { Infraestructura.Constantes.Roles.EDITOR};
+                contenedorRoles.RolesAsignados = new List<string>() { Roles.EDITOR};
 
                 contenedorRoles.RolesAsignados = _userService.GetRoles(id);
             }

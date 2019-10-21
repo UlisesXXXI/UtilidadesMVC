@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Utilidades.ViewModels.Tag.TagViewModel>
+
+<div class="row">
+
+    <div class="col-lg-5 col-lg-push-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Tags</div>
+            <div class="panel-body">
+                <table class="table" id="tag_tabla">
+                    <p>
+                        @Html.ActionLink("Create New", "Create", new { area = "Admin" }, new { rol = "btn", @class = "btn btn-success" })
+                    </p>
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Descripcion)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+
+         
+
+        </div>
+
+    </div>
+  
+
+ 
+
+</div>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            Utilidades.Tag.init();
+        });
+    </script>
+    }

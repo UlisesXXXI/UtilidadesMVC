@@ -1,15 +1,11 @@
-﻿using System;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
+using System;
 using utilidades.BLL;
-using utilidades.DAL.dbContext;
-using utilidades.DAL.UsuarioYRoles;
-using Utilidades.Models;
+using utilidades.Entities.UsuarioYRoles;
 
 namespace Utilidades
 {

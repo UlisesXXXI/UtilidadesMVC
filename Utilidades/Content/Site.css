@@ -1,4 +1,25 @@
-﻿body {
+﻿
+
+/*Burbujas tag*/
+
+
+.badge > .eliminar {
+    position: relative !important;
+    color: black !important;
+    top: -4px !important;
+    left: 4px !important;
+    padding:10px;
+    z-index:1000;
+
+}
+
+    .badge > .eliminar:hover {
+        cursor: pointer;
+        color:red;
+    }
+
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -33,3 +54,22 @@ textarea {
 .container-fluid{
     margin-left:20px;
 }
+
+/*LABELS DE FORMULARIOS ALINIADOS A LA DERECHA*/
+
+.form-horizontal .control-label {
+    text-align: left !important; /* !important added for priority in SO snippet. */
+}
+
+
+
+/*TAMAÑO EDITOR ARTICULO*/
+
+#articulo_contenido{
+
+
+    min-height:500px;
+}
+
+
+

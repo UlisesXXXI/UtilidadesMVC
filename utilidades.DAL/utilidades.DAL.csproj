@@ -84,15 +84,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comun\EntidadBase.cs" />
-    <Compile Include="Comun\IActivo.cs" />
-    <Compile Include="Comun\IEntidadAuditable.cs" />
-    <Compile Include="Comun\IEntidadBorradoLogico.cs" />
     <Compile Include="Comun\IRepositorio.cs" />
-    <Compile Include="Comun\ISistema.cs" />
     <Compile Include="Comun\RepositorioBase.cs" />
     <Compile Include="Configuraciones\ArticuloConfiguracion.cs" />
-    <Compile Include="Configuraciones\ConstantesGeneralesConfiguracion.cs" />
     <Compile Include="Configuraciones\TagsConfiguracion.cs" />
     <Compile Include="Configuraciones\TipoConfiguracion.cs" />
     <Compile Include="dbContext\UtilidadesDbContext.cs" />
@@ -120,13 +114,12 @@
     <Compile Include="Migrations\201910081646438_fechas.Designer.cs">
       <DependentUpon>201910081646438_fechas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910171709165_imagenesEntipos.cs" />
+    <Compile Include="Migrations\201910171709165_imagenesEntipos.Designer.cs">
+      <DependentUpon>201910171709165_imagenesEntipos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorio\Articulo.cs" />
-    <Compile Include="Repositorio\Tag.cs" />
-    <Compile Include="Repositorio\Tipo.cs" />
-    <Compile Include="UsuarioYRoles\ApplicationRole.cs" />
-    <Compile Include="UsuarioYRoles\ApplicationUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -151,9 +144,22 @@
     <EmbeddedResource Include="Migrations\201910081646438_fechas.resx">
       <DependentUpon>201910081646438_fechas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910171709165_imagenesEntipos.resx">
+      <DependentUpon>201910171709165_imagenesEntipos.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dto\UsuariosYRoles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infraestructura.comun\Infraestructura.comun.csproj">
+      <Project>{B38C4FBE-F279-46DD-AAFB-B65690BE63FA}</Project>
+      <Name>Infraestructura.comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilidades.Entities\Utilidades.Entities.csproj">
+      <Project>{c0319ac9-744e-4abc-8921-f2e56a991b1d}</Project>
+      <Name>Utilidades.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

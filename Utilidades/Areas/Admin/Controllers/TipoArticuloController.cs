@@ -1,13 +1,14 @@
 ﻿using AutoMapper;
+using Infraestructura.comun.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Unity;
 using utilidades.BLL.Inter;
-using utilidades.DAL.Repositorio;
+using utilidades.Entities.Repositorio;
 using Utilidades.Infraestructura.Comun;
 using Utilidades.Infraestructura.Helpers.Controllers;
 using Utilidades.ViewModels.TipoArticulo;
@@ -57,7 +58,7 @@ namespace Utilidades.Areas.Admin.Controllers
 
         // POST: Admin/TipoArticulo/Create
         [HttpPost]
-        public ActionResult Create(NuevoTipoArticuloViewModel tipo)
+        public ActionResult Create(NuevoTipoArticuloViewModel tipo, HttpPostedFileBase file)
         {
             
             if (ModelState.IsValid)
@@ -65,7 +66,20 @@ namespace Utilidades.Areas.Admin.Controllers
                 
                 Tipo entidad = Mapper.Map<Tipo>(tipo);
 
-                entidad = TipoService.Guardar(entidad, ContextoApp.Usuario.NombreUsuario());
+                if (file != null && file.ContentLength > 0)
+                {
+                    var stream = file.InputStream;
+
+                    using (BinaryReader br = new BinaryReader(stream))
+                    {
+                        entidad.Imagen = br.ReadBytes((int)stream.Length);
+                        entidad.TipoDato = file.ContentType;
+                    }
+
+
+                }
+
+                entidad = TipoService.Guardar(entidad, ContextoApp.Usuario.NombreUsuario);
 
                 AddMessage("Tipo guardado corretamente", Infraestructura.Managers.Imp.MessageType.Normal);
 
@@ -89,15 +103,26 @@ namespace Utilidades.Areas.Admin.Controllers
 
         // POST: Admin/TipoArticulo/Edit/5
         [HttpPost]
-        public ActionResult Edit(TipoArticuloViewModel tipo)
+        public ActionResult Edit(TipoArticuloViewModel tipo, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
                 Tipo t = _tipoService.Buscar(wh => wh.Id == tipo.Id).First();
                 Tipo entidad = Mapper.Map(tipo, t);
                 
+                if(file!=null && file.ContentLength > 0)
+                {
+                    var stream = file.InputStream;
 
-                entidad = TipoService.Modificar(entidad, ContextoApp.Usuario.NombreUsuario());
+                    using (BinaryReader br = new BinaryReader(stream))
+                    {
+                        entidad.Imagen = br.ReadBytes((int)stream.Length);
+                        entidad.TipoDato = file.ContentType;
+                    }
+
+                   
+                }
+                entidad = TipoService.Modificar(entidad, ContextoApp.Usuario.NombreUsuario);
 
                 AddMessage("Tipo guardado corretamente", Infraestructura.Managers.Imp.MessageType.Normal);
 
@@ -134,7 +159,7 @@ namespace Utilidades.Areas.Admin.Controllers
               var Tipo = _tipoService.Buscar(wh => wh.Id == tipo.Id).First();
                if (Tipo == null)
                    throw new Exception("No se encontro la entidad");
-                _tipoService.Eliminar(wh => wh.Id == tipo.Id,ContextoApp.Usuario.NombreUsuario());
+                _tipoService.Eliminar(wh => wh.Id == tipo.Id,ContextoApp.Usuario.NombreUsuario);
 
                AddMessage("eliminado correctamente", Infraestructura.Managers.Imp.MessageType.Error);
               

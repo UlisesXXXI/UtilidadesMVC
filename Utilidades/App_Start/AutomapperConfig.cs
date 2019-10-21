@@ -1,11 +1,5 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using utilidades.DAL.Repositorio;
 using Utilidades.Infraestructura.Mapper;
-using Utilidades.ViewModels.TipoArticulo;
 
 namespace Utilidades.App_Start
 {
@@ -17,6 +11,11 @@ namespace Utilidades.App_Start
                 cfg =>
                 {
                     cfg.AddProfile(new TipoArticuloProfile());
+
+                    cfg.AddProfile(new TagProfile());
+
+                    cfg.AddProfile(new ArticuloProfile());
+
                 }
             );
         }
