@@ -1,12 +1,17 @@
 ﻿@model Utilidades.ViewModels.Tag.TagViewModel
 
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Tags", "Index", "Tag", new { Area = "Admin" })</li>
+    <li class="active">Editar</li>
+    <li class="active">@Model.Id</li>
+</ol>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>TagViewModel</h4>
-        <hr />
+       
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 

@@ -52,6 +52,8 @@
     <Compile Include="Constantes\MessageManagerConst.cs" />
     <Compile Include="Constantes\Roles.cs" />
     <Compile Include="Constantes\Usuarios.cs" />
+    <Compile Include="EntityFramework\PredicateBuilder.cs" />
+    <Compile Include="Filtro\Filtro.cs" />
     <Compile Include="Seguridad\imp\UsuarioActual.cs" />
     <Compile Include="Seguridad\inter\IUsuarioActual.cs" />
     <Compile Include="Shard\ContextoApp.cs" />

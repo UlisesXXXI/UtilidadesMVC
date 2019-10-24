@@ -1,13 +1,16 @@
 ﻿@model Utilidades.ViewModels.Articulo.ArticuloViewModel
 
-
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Artículos", "Index", "Articulo", new { Area = "Repositorio" })</li>
+    <li class="active">Editar</li>
+    <li class="active">@Model.Id</li>
+</ol>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>ArticuloViewModel</h4>
-        <hr />
+        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "control-label col-md-1" })

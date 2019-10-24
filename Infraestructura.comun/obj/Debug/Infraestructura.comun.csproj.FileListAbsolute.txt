@@ -5,13 +5,13 @@ C:\GIT\Propios\Utilidades\Infraestructura.comun\obj\Debug\Infraestructura.comun.
 C:\GIT\Propios\Utilidades\Infraestructura.comun\obj\Debug\Infraestructura.comun.csprojResolveAssemblyReference.cache
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\bin\Debug\Infraestructura.comun.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\bin\Debug\Infraestructura.comun.pdb
-J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.csproj.CoreCompileInputs.cache
-J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.dll
-J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\bin\Debug\Unity.Abstractions.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\bin\Debug\Unity.Container.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\bin\Debug\Unity.Abstractions.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\bin\Debug\Unity.Container.pdb
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.csproj.CoreCompileInputs.cache
 J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.csproj.CopyComplete
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\Infraestructura.comun\obj\Debug\Infraestructura.comun.pdb

@@ -51,6 +51,9 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="PredicateExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PredicateExtensions.1.0.0\lib\PredicateExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -213,6 +216,7 @@
     </Compile>
     <Compile Include="Infraestructura\Comun\AppError.cs" />
     <Compile Include="Infraestructura\Comun\Json\ResultadoJson.cs" />
+    <Compile Include="Infraestructura\Filtros\FiltroArticulo.cs" />
     <Compile Include="Infraestructura\Helpers\Controllers\BaseController.cs" />
     <Compile Include="Infraestructura\Managers\Imp\ArticuloManager.cs" />
     <Compile Include="Infraestructura\Managers\Imp\MessageManager.cs" />
@@ -225,6 +229,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Articulo\ArticuloPaginadoViewModel.cs" />
     <Compile Include="ViewModels\Articulo\ArticuloViewModel.cs" />
     <Compile Include="ViewModels\Articulo\ArticuloViewModelBase.cs" />
     <Compile Include="ViewModels\Tag\SelectableTagViewModel.cs" />
@@ -361,6 +366,8 @@
     <Content Include="Scripts\dataTables.jqueryui.js" />
     <Content Include="Scripts\dataTables.jqueryui.min.js" />
     <Content Include="Areas\Repositorio\Views\Articulo\Edit.cshtml" />
+    <Content Include="readme.md" />
+    <Content Include="LICENSE.md" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />

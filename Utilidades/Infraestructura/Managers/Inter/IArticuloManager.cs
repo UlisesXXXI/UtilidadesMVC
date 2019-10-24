@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using utilidades.Entities.Repositorio;
+using Utilidades.Infraestructura.Filtros;
 using Utilidades.ViewModels;
 using Utilidades.ViewModels.Articulo;
 
@@ -23,6 +24,8 @@ namespace Utilidades.Infraestructura.Managers.Inter
         void Eliminar(ArticuloViewModel articulo);
 
         void RellenarSeleccionables(ArticuloViewModelBase vm);
+
+        ArticuloPaginadoViewModel FiltroPaginado(FiltroArticulo filtro);
 
     }
 }

@@ -14,6 +14,8 @@ using Utilidades.ViewModels.Tag;
 using Utilidades.ViewModels.TipoArticulo;
 using Utilidades.Infraestructura.comun;
 using Infraestructura.comun.Shared;
+using Utilidades.Infraestructura.Filtros;
+using Infraestructura.comun.EntityFramework;
 
 namespace Utilidades.Infraestructura.Managers.Imp
 {
@@ -144,6 +146,47 @@ namespace Utilidades.Infraestructura.Managers.Imp
             };
 
             return art;
+        }
+
+        public ArticuloPaginadoViewModel FiltroPaginado(FiltroArticulo filtro)
+        {
+            var predicado = GenerarWhereBusqueda(filtro);
+
+            var query = _articuloService.Buscar(predicado);
+            
+            var resultado = query.Include(x => x.Tipo).Include(i => i.Tags).ToList();
+
+            List<ArticuloViewModel> listado = AutoMapper.Mapper.Map<List<ArticuloViewModel>>(resultado);
+
+            PagedList.IPagedList<ArticuloViewModel> paginado = new PagedList.PagedList<ArticuloViewModel>(listado, filtro.Pagina, 30);
+
+            var vm = new ArticuloPaginadoViewModel();
+
+            vm.Articulos = paginado;
+
+            return vm;
+        }
+
+
+        private System.Linq.Expressions.Expression<Func<Articulo, bool>> GenerarWhereBusqueda(FiltroArticulo filtro)
+        {
+
+
+            var predicado = PredicateBuilder.And<Articulo>(x => true, x => x.Activo == true && x.Privado == false);
+
+
+
+            if (!String.IsNullOrEmpty(filtro.BusquedaGlobal))
+            {
+                predicado = PredicateBuilder.And(predicado, wh => wh.Contenido.Contains(filtro.BusquedaGlobal)
+                                                                                        || wh.Tipo.Descripcion.Contains(filtro.BusquedaGlobal)
+                                                                                        || wh.Tags.Any(a => a.Descripcion.Contains(filtro.BusquedaGlobal)
+                                                                                        || wh.Titulo.Contains(filtro.BusquedaGlobal)));
+            }
+
+
+
+            return predicado;
         }
     }
 }

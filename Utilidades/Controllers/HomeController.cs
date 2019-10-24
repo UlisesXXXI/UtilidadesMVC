@@ -1,16 +1,15 @@
-﻿using System;
+﻿using Infraestructura.comun.EntityFramework;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using utilidades.BLL.Inter;
-using Utilidades.Infraestructura;
-using Utilidades.Infraestructura.Comun;
+using utilidades.Entities.Repositorio;
+using Utilidades.Infraestructura.Filtros;
 using Utilidades.Infraestructura.Helpers.Controllers;
-using Utilidades.ViewModels.Articulo;
-using System.Data.Entity;
 using Utilidades.Infraestructura.Managers.Inter;
-using System.Data.Entity;
+using Utilidades.ViewModels.Articulo;
 
 namespace Utilidades.Controllers
 {
@@ -31,16 +30,16 @@ namespace Utilidades.Controllers
             _articuloManager = articuloManager;
         }
 
-        public ActionResult Index(string busqueda = null, int pagina=1)
+        public ActionResult Index(FiltroArticulo filtro)
         {
 
-            List<ArticuloViewModel> listado = AutoMapper.Mapper.Map<List<ArticuloViewModel>>(_articuloService.Buscar(x=>x.Activo ==true && x.Privado == false).Include(x=>x.Tipo).ToList());
+            var paginado = _articuloManager.FiltroPaginado(filtro);
 
-            
-
-            return View(listado);
+            return View(paginado);
   
         }
+
+       
 
         public ActionResult Articulo(int id)
         {

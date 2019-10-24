@@ -1,5 +1,9 @@
 ﻿@model Utilidades.ViewModels.TipoArticulo.NuevoTipoArticuloViewModel
-
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Artículos", "Index", "Articulo", new { Area = "Repositorio" })</li>
+    <li class="active">Nuevo tipo</li>
+   
+</ol>
 @using (Html.BeginForm(new { enctype="multipart/form-data"}))
 {
     @Html.AntiForgeryToken()

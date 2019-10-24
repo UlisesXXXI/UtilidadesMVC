@@ -94,6 +94,9 @@ J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\Microsoft.Owin.Security.Twitter.dl
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\Microsoft.Web.Infrastructure.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\Newtonsoft.Json.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\Owin.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\PagedList.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\PagedList.Mvc.dll
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\PredicateExtensions.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.Runtime.CompilerServices.Unsafe.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.Threading.Tasks.Extensions.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.ValueTuple.dll
@@ -122,6 +125,8 @@ J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\Utilidades.Entities.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\Utilidades.Entities.dll.config
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\AutoMapper.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\AutoMapper.xml
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\PagedList.xml
+J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\PagedList.Mvc.xml
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.Runtime.CompilerServices.Unsafe.xml
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.Threading.Tasks.Extensions.xml
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades\bin\System.ValueTuple.xml
