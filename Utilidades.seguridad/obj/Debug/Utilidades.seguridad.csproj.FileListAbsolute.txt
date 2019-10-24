@@ -1,8 +1,3 @@
-C:\GIT\Propios\Utilidades\Utilidades.seguridad\bin\Debug\Utilidades.seguridad.dll
-C:\GIT\Propios\Utilidades\Utilidades.seguridad\bin\Debug\Utilidades.seguridad.pdb
-C:\GIT\Propios\Utilidades\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.dll
-C:\GIT\Propios\Utilidades\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.pdb
-C:\GIT\Propios\Utilidades\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.csprojResolveAssemblyReference.cache
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades.seguridad\bin\Debug\Utilidades.seguridad.dll
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades.seguridad\bin\Debug\Utilidades.seguridad.pdb
 J:\PROYECTOS\ASP\UtilidadesMVC\Utilidades.seguridad\obj\Debug\Utilidades.seguridad.csproj.CoreCompileInputs.cache
