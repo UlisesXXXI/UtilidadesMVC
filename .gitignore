@@ -1,1 +1,3 @@
 ./utilidades/bin/*
+bin/
+./packages
