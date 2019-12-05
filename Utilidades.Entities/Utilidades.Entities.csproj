@@ -60,6 +60,8 @@
     <Compile Include="Comun\IEntidadAuditable.cs" />
     <Compile Include="Comun\IEntidadBorradoLogico.cs" />
     <Compile Include="Comun\ISistema.cs" />
+    <Compile Include="Constantes\TiposParametro.cs" />
+    <Compile Include="Parametros\Parametro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\Articulo.cs" />
     <Compile Include="Repositorio\Tag.cs" />

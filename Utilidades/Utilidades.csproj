@@ -286,6 +286,7 @@
     <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\dataTables.jqueryui.css" />
     <Content Include="Content\dataTables.jqueryui.min.css" />
+    <Content Include="Content\img\404.gif" />
     <Content Include="Content\img\Error.jpg" />
     <Content Include="Content\img\errorimg.png" />
     <Content Include="Content\img\images.jpg" />
@@ -493,6 +494,7 @@
     <Content Include="Scripts\tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
     <Content Include="Scripts\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
     <Content Include="Views\Home\Articulo.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Images\" />
@@ -548,9 +550,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54118</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-
           <IISUrl>http://localhost:54118/</IISUrl>
-
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

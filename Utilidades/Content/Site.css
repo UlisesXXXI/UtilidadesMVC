@@ -28,11 +28,8 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-<<<<<<< HEAD
+
     padding-top:20px;
-=======
-    padding-top:50PX;
->>>>>>> refs/remotes/origin/master
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -70,7 +67,6 @@ textarea {
 /*TAMAÑO EDITOR ARTICULO*/
 
 #articulo_contenido{
-
 
     min-height:500px;
 }

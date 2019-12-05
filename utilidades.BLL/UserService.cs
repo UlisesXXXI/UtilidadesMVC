@@ -3,8 +3,11 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using System;
+using System.Threading.Tasks;
 using utilidades.DAL.dbContext;
 using utilidades.Entities.UsuarioYRoles;
+using utilidades.Entities;
+using utilidades.Entities.Comun;
 
 namespace utilidades.BLL
 {
@@ -60,6 +63,19 @@ namespace utilidades.BLL
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
+        }
+
+        public async override Task<IdentityResult> DeleteAsync(ApplicationUser user)
+        {
+
+            if(user is ISistema)
+            {
+                if (user.Sistema)
+                {
+                    throw new Exception("No se puede eliminar un elemento marcado como sistema");
+                }
+            }
+            return await base.DeleteAsync(user);
         }
     }
 }

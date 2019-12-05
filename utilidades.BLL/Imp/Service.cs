@@ -51,7 +51,7 @@ namespace utilidades.BLL.Imp
 
         public virtual IEnumerable<TEntidad> ObtenerTodos()
         {
-            return _repositorio.Buscar().ToList();
+            return Todos();
         }
 
         public IEnumerable<TEntidad> Todos()

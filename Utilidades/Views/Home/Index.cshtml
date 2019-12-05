@@ -37,48 +37,120 @@
     }
 </style>
 <div class="row">
-    <div class="col-md-12 col-lg-10 ">
-        @foreach (var articulo in Model.Articulos)
-        {
-            <a href="@Url.Action("Articulo","Home",new { id=articulo.Id})">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 entradablog">
-                    <img src="@articulo.Base64()" class="imgblog" click="console.log('hola')">
-                    <div class="piecontainer">
-                        <div class="titulodocumento"> @articulo.Titulo</div>
-                        <div class="autordocumento">@articulo.UsuarioCreacion - @articulo.FechaCreacion</div>
-                    </div>
-                </div>
-            </a>
-        }
 
-    </div>
-
-
-
+    <!--PARTE DERECHA BUSCADOR Y OTROS-->
     <div class="col-md-12 col-lg-2 ">
 
+        <div class="row">
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">Busqueda</div>
-            <form>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Busqueda</div>
+
                 <div class="panel-body">
-                    <input type="text" id="busqueda" name="BusquedaGlobal" class="form-control" />
+                    <form class="form-inline" method="post">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <input type="text" id="busqueda" name="BusquedaGlobal" class="form-control" value="@Model.Filtro.BusquedaGlobal" />
+                                <button type="submit" id="enviobusqueda" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+
+
+                        <hr />
+                        Busqueda avanzada <span role="button" class="glyphicon glyphicon-plus" data-toggle="collapse" data-target="#busquedaAvanzada"></span>
+                        @{ 
+                            var classShow = (Model.Filtro.HayBusquedaAvanzada) ? "show" : "";
+                        }
+                                            
+
+                                          <div id="busquedaAvanzada" class="collapse @classShow">
+
+                                              <br />
+                                              <h4>Tipos</h4>
+
+                                              @for (var i = 0; i < Model.Filtro.TodosTipos.Count(); i++)
+                                              {
+                                                  if (Model.Filtro.Tipos != null && Model.Filtro.Tipos.Contains(Model.Filtro.TodosTipos[i].Id))
+                                                  {
+                                                      <input type="checkbox" class="form-check-inpu" name="filtro.Tipos" value="@Model.Filtro.TodosTipos[i].Id" checked>
+                                                      @Model.Filtro.TodosTipos[i].Descripcion
+
+                                                  }
+                                                  else
+                                                  {
+                                                      <input type="checkbox" class="form-check-inpu" name="filtro.Tipos" value="@Model.Filtro.TodosTipos[i].Id">
+                                                      @Model.Filtro.TodosTipos[i].Descripcion
+
+                                                  }
+                                                  <br />
+
+
+                                              }
+                                              <h4>Tags</h4>
+                                              @foreach (var tags in Model.Filtro.TodosTags)
+                                              {
+                                                  if (Model.Filtro.Tags != null && Model.Filtro.Tags.Contains(tags))
+                                                  {
+                                                      <input type="checkbox" class="form-check-inpu" name="filtro.Tags" value="@tags" checked>
+                                                      @tags
+                                                  }
+                                                  else
+                                                  {
+                                                      <input type="checkbox" class="form-check-inpu" name="filtro.Tags" value="@tags">
+                                                      @tags
+                                                  }
+
+                                                  <br />
+                                              }
+                                          </div>
+
+
+
+                    </form>
                 </div>
-            </form>
 
-        </div>
+                   
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">General</div>
-            <div class="panel-body">
-                @Html.ActionLink("Iniciar Sesion", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink", @class = "navegacion" })
+
+                    
+              
+
             </div>
+
+            
+
+
+            
         </div>
+
     </div>
 
+    <!--ARTICULOS PARTE IQUIERDA-->
+    <div class="col-md-12 col-lg-10 ">
+        <div class="row">
+            @foreach (var articulo in Model.Articulos)
+            {
+                <a href="@Url.Action("Articulo","Home",new { id=articulo.Id})">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 entradablog">
+                        <img src="@articulo.Base64()" class="imgblog" click="console.log('hola')">
+                        <div class="piecontainer">
+                            <div class="titulodocumento"> @articulo.Titulo</div>
+                            <div class="autordocumento">@articulo.UsuarioCreacion - @articulo.FechaCreacion</div>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+        <div class="row">
+            @Html.PagedListPager(Model.Articulos, page => Url.Action("Index",
+                new { Pagina = page, BusquedaGlobal = Model.Filtro.BusquedaGlobal }))
+        </div>
 
+        
+    </div>
 
 </div>
 
-@Html.PagedListPager(Model.Articulos, page => Url.Action("Index",
-    new { Pagina = page, BusquedaGlobal = Model.Filtro.BusquedaGlobal }))
+

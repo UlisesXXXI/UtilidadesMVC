@@ -1,4 +1,5 @@
 ﻿using Infraestructura.comun.EntityFramework;
+using Infraestructura.comun.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -32,7 +33,7 @@ namespace Utilidades.Controllers
 
         public ActionResult Index(FiltroArticulo filtro)
         {
-
+            
             var paginado = _articuloManager.FiltroPaginado(filtro);
 
             return View(paginado);
@@ -43,9 +44,18 @@ namespace Utilidades.Controllers
 
         public ActionResult Articulo(int id)
         {
-            _articuloService.Buscar(x => x.Id == id).First();
 
             var articulo = _articuloManager.Buscar(x => x.Id == id);
+
+            if (articulo == null) return HttpNotFound();
+
+            if(articulo.Privado || !articulo.Activo)
+            {
+                if(articulo.UsuarioCreacion != ContextoApp.Usuario.NombreUsuario || !ContextoApp.Usuario.EsAdministrador)
+                {
+                    return HttpNotFound();
+                }
+            }
 
             return View(articulo);
         }

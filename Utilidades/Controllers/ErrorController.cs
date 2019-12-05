@@ -10,5 +10,10 @@ namespace Utilidades.Controllers
         {
             return PartialView(appError);
         }
+
+        public ActionResult NotFound()
+        {
+            return PartialView();
+        }
     }
 }

@@ -150,13 +150,19 @@ namespace Utilidades.Infraestructura.Managers.Imp
 
         public ArticuloPaginadoViewModel FiltroPaginado(FiltroArticulo filtro)
         {
-            var predicado = GenerarWhereBusqueda(filtro);
 
-            var query = _articuloService.Buscar(predicado);
-            
-            var resultado = query.Include(x => x.Tipo).Include(i => i.Tags).ToList();
+            var resultado = ObtenerArticulosFiltradosPorBusqueda(filtro);
 
-            List<ArticuloViewModel> listado = AutoMapper.Mapper.Map<List<ArticuloViewModel>>(resultado);
+            var vm = ConstruirViewModel(filtro, resultado);
+
+            return vm;
+        }
+
+
+        
+        private ArticuloPaginadoViewModel ConstruirViewModel(FiltroArticulo filtro, List<Articulo> articulos)
+        {
+            List<ArticuloViewModel> listado = AutoMapper.Mapper.Map<List<ArticuloViewModel>>(articulos);
 
             PagedList.IPagedList<ArticuloViewModel> paginado = new PagedList.PagedList<ArticuloViewModel>(listado, filtro.Pagina, 30);
 
@@ -164,9 +170,28 @@ namespace Utilidades.Infraestructura.Managers.Imp
 
             vm.Articulos = paginado;
 
+            vm.Filtro = filtro;
+
+            vm.Filtro.TodosTags = _tagService.ObtenerTodos().Select(s => s.Descripcion);
+
+            vm.Filtro.TodosTipos = _tipoService.ObtenerTodos().ToList();
+
             return vm;
         }
 
+        private List<Articulo> ObtenerArticulosFiltradosPorBusqueda(FiltroArticulo filtro)
+        {
+            var predicado = GenerarWhereBusqueda(filtro);
+
+            predicado = GenerarWhereTags(predicado,filtro.Tags);
+
+            predicado = GenerarWhereTipos(predicado,filtro.Tipos);
+
+            var query = _articuloService.Buscar(predicado);
+
+
+            return  query.Include(x => x.Tipo).Include(i => i.Tags).ToList();
+        }
 
         private System.Linq.Expressions.Expression<Func<Articulo, bool>> GenerarWhereBusqueda(FiltroArticulo filtro)
         {
@@ -182,6 +207,41 @@ namespace Utilidades.Infraestructura.Managers.Imp
                                                                                         || wh.Tipo.Descripcion.Contains(filtro.BusquedaGlobal)
                                                                                         || wh.Tags.Any(a => a.Descripcion.Contains(filtro.BusquedaGlobal)
                                                                                         || wh.Titulo.Contains(filtro.BusquedaGlobal)));
+            }
+
+
+
+            return predicado;
+        }
+
+        private System.Linq.Expressions.Expression<Func<Articulo, bool>> GenerarWhereTags(System.Linq.Expressions.Expression<Func<Articulo, bool>> predicado, IEnumerable<String> tags)
+        {
+
+
+           
+
+
+
+            if (tags != null && tags.Count() > 0)
+            {
+                predicado = PredicateBuilder.And(predicado, wh => wh.Tags.Any(any => tags.Contains(any.Descripcion)));
+            }
+
+
+
+            return predicado;
+        }
+
+        private System.Linq.Expressions.Expression<Func<Articulo, bool>> GenerarWhereTipos(System.Linq.Expressions.Expression<Func<Articulo, bool>> predicado, IEnumerable<int> tipos)
+        {
+
+
+
+
+
+            if (tipos != null && tipos.Count() > 0)
+            {
+                predicado = PredicateBuilder.And(predicado, wh => tipos.Contains(wh.Tipo.Id));
             }
 
 

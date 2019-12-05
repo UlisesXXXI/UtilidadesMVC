@@ -39,7 +39,7 @@ namespace Utilidades.ViewModels.Articulo
             if (Tipo.Imagen != null && Tipo.Imagen.Length > 0)
             {
                 String img64 = Convert.ToBase64String(Tipo.Imagen);
-                String img64Url = string.Format("data:image/" + Tipo.TipoDato + ";base64,{0}", img64); //imagetype can be e.g. gif
+                String img64Url = string.Format("data:" + Tipo.TipoDato + ";base64,{0}", img64); //imagetype can be e.g. gif
                 return img64Url;
             }
             return "";

@@ -31,11 +31,7 @@ namespace Utilidades.Areas.Repositorio.Controllers
             return View(listado);
         }
 
-        // GET: Repositorio/Articulo/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        
 
         // GET: Repositorio/Articulo/Create
         public ActionResult Create()

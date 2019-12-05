@@ -46,7 +46,7 @@ namespace Utilidades
                 {
                     case 404:
                         // page not found
-                        routeData.Values.Add("action", "Index");
+                        routeData.Values.Add("action", "NotFound");
                         break;
                     case 500:
                         // server error
